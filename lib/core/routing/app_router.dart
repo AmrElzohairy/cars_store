@@ -3,6 +3,7 @@ import 'package:cars_store/feature/auth/domain/repo/auth_repo.dart';
 import 'package:cars_store/feature/auth/presentation/cubits/cubit/sign_in_cubit.dart';
 import 'package:cars_store/feature/auth/presentation/views/login_view.dart';
 import 'package:cars_store/feature/auth/presentation/views/sign_up_view.dart';
+import 'package:cars_store/feature/home/presentation/views/home_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -23,6 +24,11 @@ abstract class AppRouter {
         path: SignUpView.routeName,
         name: SignUpView.routeName,
         builder: (context, state) => const SignUpView(),
+      ),
+      GoRoute(
+        path: HomeView.routeName,
+        name: HomeView.routeName,
+        builder: (context, state) => const HomeView(),
       ),
     ],
   );

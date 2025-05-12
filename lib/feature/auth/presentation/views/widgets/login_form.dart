@@ -8,11 +8,11 @@ import '../../../../../core/utils/spacing_widgets.dart';
 class LoginForm extends StatelessWidget {
   const LoginForm({
     super.key,
-    required this.usernameController,
+    required this.emailController,
     required this.passwordController,
     required this.formKey,
   });
-  final TextEditingController usernameController;
+  final TextEditingController emailController;
   final TextEditingController passwordController;
   final GlobalKey<FormState> formKey;
   @override
@@ -22,9 +22,9 @@ class LoginForm extends StatelessWidget {
       child: Column(
         children: [
           CustomAuthTextFormField(
-            controller: usernameController,
+            controller: emailController,
             textInputAction: TextInputAction.next,
-            labelText: 'username',
+            labelText: 'email',
             icon: Assets.imagesUsernameIcon,
             validator: (value) {
               if (value == null || value.isEmpty) {

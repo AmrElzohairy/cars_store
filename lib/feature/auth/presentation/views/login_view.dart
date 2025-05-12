@@ -1,10 +1,14 @@
 import 'package:cars_store/core/utils/app_styles.dart';
 import 'package:cars_store/core/utils/assets.dart';
 import 'package:cars_store/core/utils/spacing_widgets.dart';
+import 'package:cars_store/feature/auth/data/models/sign_in_body.dart';
+import 'package:cars_store/feature/auth/presentation/cubits/cubit/sign_in_cubit.dart';
 import 'package:cars_store/feature/auth/presentation/views/sign_up_view.dart';
 import 'package:cars_store/feature/auth/presentation/views/widgets/custom_text_row.dart';
 import 'package:cars_store/feature/auth/presentation/views/widgets/login_form.dart';
+import 'package:cars_store/feature/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
@@ -20,20 +24,20 @@ class LoginView extends StatefulWidget {
 
 class _LoginViewState extends State<LoginView> {
   late GlobalKey<FormState> formKey;
-  late TextEditingController usernameController;
+  late TextEditingController emailController;
   late TextEditingController passwordController;
 
   @override
   void initState() {
     formKey = GlobalKey<FormState>();
-    usernameController = TextEditingController();
+    emailController = TextEditingController();
     passwordController = TextEditingController();
     super.initState();
   }
 
   @override
   void dispose() {
-    usernameController.dispose();
+    emailController.dispose();
     passwordController.dispose();
     formKey.currentState?.dispose();
     super.dispose();
@@ -61,14 +65,41 @@ class _LoginViewState extends State<LoginView> {
               const VerticalSpace(height: 44),
               LoginForm(
                 formKey: formKey,
-                usernameController: usernameController,
+                emailController: emailController,
                 passwordController: passwordController,
               ),
               const VerticalSpace(height: 40),
-              CustomAppButton(
-                text: 'Login',
-                onPressed: () {},
-                isLoading: false,
+              BlocConsumer<SignInCubit, SignInState>(
+                listener: (context, state) {
+                  if (state is SignInSuccess) {
+                    context.goNamed(HomeView.routeName);
+                  }
+                  if (state is SignInFailure) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(state.errMessage),
+                        backgroundColor: Colors.red,
+                      ),
+                    );
+                  }
+                },
+                builder: (context, state) {
+                  var signInCubit = context.read<SignInCubit>();
+                  return CustomAppButton(
+                    text: 'Login',
+                    onPressed: () {
+                      if (formKey.currentState!.validate()) {
+                        signInCubit.signIn(
+                          SignInBody(
+                            email: emailController.text,
+                            password: passwordController.text,
+                          ),
+                        );
+                      }
+                    },
+                    isLoading: state is SignInLoading ? true : false,
+                  );
+                },
               ),
               const VerticalSpace(height: 30),
               CustomTextRow(

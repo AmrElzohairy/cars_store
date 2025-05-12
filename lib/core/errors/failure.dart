@@ -42,7 +42,7 @@ class ServerFailure extends Failure {
           return ServerFailure(response["errors"]["phone"][0]);
         }
       } else {
-        return ServerFailure(response["msg"]);
+        return ServerFailure(response);
       }
     }
 
@@ -51,7 +51,7 @@ class ServerFailure extends Failure {
         statusCode == 401 ||
         statusCode == 403 ||
         statusCode == 422) {
-      return ServerFailure(response["message"]);
+      return ServerFailure(response);
     } else if (statusCode == 500) {
       return ServerFailure("هناك مشكلة في الخادم يرجى المحاولة لاحقا");
     } else {

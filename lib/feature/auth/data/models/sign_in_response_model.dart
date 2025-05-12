@@ -4,7 +4,6 @@ class SignInResponseModel {
   String? userName;
   String? email;
   dynamic phone;
-  List<String>? roles;
   bool? isAuthenticated;
   String? token;
   String? refreshToken;
@@ -16,7 +15,6 @@ class SignInResponseModel {
     this.userName,
     this.email,
     this.phone,
-    this.roles,
     this.isAuthenticated,
     this.token,
     this.refreshToken,
@@ -30,7 +28,6 @@ class SignInResponseModel {
       userName: json['userName'] as String?,
       email: json['email'] as String?,
       phone: json['phone'] as dynamic,
-      roles: json['roles'] as List<String>?,
       isAuthenticated: json['isAuthenticated'] as bool?,
       token: json['token'] as String?,
       refreshToken: json['refreshToken'] as String?,
@@ -47,7 +44,6 @@ class SignInResponseModel {
     'userName': userName,
     'email': email,
     'phone': phone,
-    'roles': roles,
     'isAuthenticated': isAuthenticated,
     'token': token,
     'refreshToken': refreshToken,

@@ -1,3 +1,4 @@
+import 'package:cars_store/core/cache/cache_helper.dart';
 import 'package:cars_store/core/helpers/service_locator.dart';
 import 'package:cars_store/core/routing/app_router.dart';
 import 'package:cars_store/core/utils/app_colors.dart';
@@ -6,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+  CacheHelper.init();
   setupDependencies();
   runApp(const CarsStore());
 }
