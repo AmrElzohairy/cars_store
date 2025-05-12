@@ -1,4 +1,3 @@
-
 import 'package:cars_store/core/utils/app_styles.dart';
 import 'package:cars_store/core/utils/assets.dart';
 import 'package:cars_store/core/utils/spacing_widgets.dart';

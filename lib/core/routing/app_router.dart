@@ -1,4 +1,3 @@
-
 import 'package:cars_store/feature/auth/presentation/views/login_view.dart';
 import 'package:cars_store/feature/auth/presentation/views/sign_up_view.dart';
 import 'package:go_router/go_router.dart';
