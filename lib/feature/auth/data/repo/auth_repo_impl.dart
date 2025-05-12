@@ -1,5 +1,7 @@
 import 'dart:developer';
 
+import 'package:cars_store/core/cache/cache_constants.dart';
+import 'package:cars_store/core/cache/cache_helper.dart';
 import 'package:cars_store/core/errors/failure.dart';
 import 'package:cars_store/core/networking/api_keys.dart';
 import 'package:cars_store/core/networking/api_services.dart';
@@ -9,6 +11,7 @@ import 'package:cars_store/feature/auth/domain/entity/user_entity.dart';
 import 'package:cars_store/feature/auth/domain/repo/auth_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 
 class AuthRepoImpl extends AuthRepo {
   final ApiService api;
@@ -20,6 +23,7 @@ class AuthRepoImpl extends AuthRepo {
       var response = await api.post(ApiKeys.signIn, data: signInBody.toJson());
       var data = SignInResponseModel.fromJson(response);
       var user = UserEntity.fromResponse(data);
+      setUserData(data, user);
       return right(user);
     } on Exception catch (e) {
       if (e is DioException) {
@@ -29,5 +33,18 @@ class AuthRepoImpl extends AuthRepo {
       log("Error in AuthRepoImpl in signIn method : $e");
       return left(ServerFailure(e.toString()));
     }
+  }
+
+  void setUserData(SignInResponseModel data, UserEntity user) {
+    CacheHelper.set(key: CacheKeys.accssToken, value: data.token);
+    debugPrint("Access Token: ${data.token}");
+    CacheHelper.set(key: CacheKeys.refreshToken, value: data.refreshToken);
+    debugPrint("Refresh Token: ${data.refreshToken}");
+    CacheHelper.set(key: CacheKeys.userId, value: user.userId);
+    debugPrint("User ID: ${user.userId}");
+    CacheHelper.set(key: CacheKeys.userName, value: user.userName);
+    debugPrint("User Name: ${user.userName}");
+    CacheHelper.set(key: CacheKeys.email, value: user.email);
+    debugPrint("User Email: ${user.email}");
   }
 }

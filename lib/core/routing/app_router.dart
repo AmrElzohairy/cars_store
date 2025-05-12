@@ -1,3 +1,5 @@
+import 'package:cars_store/core/cache/cache_constants.dart';
+import 'package:cars_store/core/cache/cache_helper.dart';
 import 'package:cars_store/core/helpers/service_locator.dart';
 import 'package:cars_store/feature/auth/domain/repo/auth_repo.dart';
 import 'package:cars_store/feature/auth/presentation/cubits/cubit/sign_in_cubit.dart';
@@ -9,7 +11,7 @@ import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
   static final router = GoRouter(
-    initialLocation: LoginView.routeName,
+    initialLocation: isAuthenticated(),
     routes: [
       GoRoute(
         path: LoginView.routeName,
@@ -32,4 +34,14 @@ abstract class AppRouter {
       ),
     ],
   );
+
+}
+
+String isAuthenticated(){
+  bool isLoggedIn = CacheHelper.getBool(key: CacheKeys.isAuthenticated) ?? false;
+  if (isLoggedIn) {
+    return HomeView.routeName;
+  } else {
+    return LoginView.routeName;
+  }
 }

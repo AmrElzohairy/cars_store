@@ -1,6 +1,10 @@
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
+import 'package:cars_store/core/cache/cache_constants.dart';
+import 'package:cars_store/core/cache/cache_helper.dart';
 import 'package:cars_store/core/utils/app_styles.dart';
 import 'package:cars_store/core/utils/assets.dart';
 import 'package:cars_store/core/utils/spacing_widgets.dart';
+import 'package:cars_store/core/widgets/custom_snac_bar.dart';
 import 'package:cars_store/feature/auth/data/models/sign_in_body.dart';
 import 'package:cars_store/feature/auth/presentation/cubits/cubit/sign_in_cubit.dart';
 import 'package:cars_store/feature/auth/presentation/views/sign_up_view.dart';
@@ -73,13 +77,22 @@ class _LoginViewState extends State<LoginView> {
                 listener: (context, state) {
                   if (state is SignInSuccess) {
                     context.goNamed(HomeView.routeName);
+                    showCustomSnacBar(
+                      context,
+                      title: "Success",
+                      message: "Login successfully",
+                      contentType: ContentType.success,
+                    );
+                    CacheHelper.set(
+                      key: CacheKeys.isAuthenticated,
+                      value: true,
+                    );
                   }
                   if (state is SignInFailure) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(state.errMessage),
-                        backgroundColor: Colors.red,
-                      ),
+                    showCustomSnacBar(
+                      context,
+                      message: state.errMessage,
+                      contentType: ContentType.failure,
                     );
                   }
                 },
