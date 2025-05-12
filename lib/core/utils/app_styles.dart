@@ -28,7 +28,7 @@ class AppStyles {
   );
 
   static TextStyle font14MediumPrimaryWithOpacity = TextStyle(
-    color: AppColors.textPrimary.withOpacity(0.4),
+    color: AppColors.textPrimary.withValues(alpha: 0.4),
     fontSize: 14.sp,
     fontWeight: FontWeight.w500,
   );
