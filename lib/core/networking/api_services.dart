@@ -1,10 +1,10 @@
 import 'package:cars_store/core/networking/api_keys.dart';
 import 'package:dio/dio.dart';
 
-class DioConsumer {
+class ApiService {
   final Dio dio;
 
-  DioConsumer(this.dio) {
+  ApiService(this.dio) {
     dio.options.baseUrl = ApiKeys.baserUrl;
     dio.interceptors.add(
       LogInterceptor(
