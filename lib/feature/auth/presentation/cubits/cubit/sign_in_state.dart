@@ -8,3 +8,23 @@ sealed class SignInState extends Equatable {
 }
 
 final class SignInInitial extends SignInState {}
+
+final class SignInLoading extends SignInState {}
+
+final class SignInSuccess extends SignInState {
+  final UserEntity user;
+
+  const SignInSuccess(this.user);
+
+  @override
+  List<Object> get props => [user];
+}
+
+final class SignInFailure extends SignInState {
+  final String errMessage;
+
+  const SignInFailure(this.errMessage);
+
+  @override
+  List<Object> get props => [errMessage];
+}
