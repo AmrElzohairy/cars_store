@@ -11,7 +11,7 @@ import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
   static final router = GoRouter(
-    initialLocation: isAuthenticated(),
+    initialLocation: isUserAuthenticated(),
     routes: [
       GoRoute(
         path: LoginView.routeName,
@@ -34,11 +34,11 @@ abstract class AppRouter {
       ),
     ],
   );
-
 }
 
-String isAuthenticated(){
-  bool isLoggedIn = CacheHelper.getBool(key: CacheKeys.isAuthenticated) ?? false;
+String isUserAuthenticated() {
+  bool isLoggedIn =
+      CacheHelper.getBool(key: CacheKeys.isAuthenticated) ?? false;
   if (isLoggedIn) {
     return HomeView.routeName;
   } else {
