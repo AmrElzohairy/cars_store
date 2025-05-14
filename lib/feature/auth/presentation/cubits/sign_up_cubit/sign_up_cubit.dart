@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'sign_up_state.dart';
 
-class SignUpCubit extends Cubit<SignUpCubitState> {
+class SignUpCubit extends Cubit<SignUpState> {
   final AuthRepo authRepo;
   SignUpCubit({required this.authRepo}) : super(SignUpCubitInitial());
 

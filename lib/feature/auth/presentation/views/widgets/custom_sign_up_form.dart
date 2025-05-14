@@ -26,11 +26,11 @@ class CustomSignUpForm extends StatelessWidget {
         children: [
           CustomAuthTextFormField(
             controller: usernameController,
-            labelText: 'username',
+            labelText: 'Full Name',
             icon: Assets.imagesUsernameIcon,
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Please enter your username';
+                return 'Please enter your full name';
               }
               return null;
             },
