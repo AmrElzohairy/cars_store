@@ -17,13 +17,7 @@ class UserEntity extends Equatable {
   });
 
   @override
-  List<Object?> get props => [
-    userId,
-    userName,
-    email,
-    phone,
-    isAuthenticated,
-  ];
+  List<Object?> get props => [userId, userName, email, phone, isAuthenticated];
 
   // Method to convert SignInResponseModel to UserEntity
   factory UserEntity.fromResponse(SignInResponseModel response) {
