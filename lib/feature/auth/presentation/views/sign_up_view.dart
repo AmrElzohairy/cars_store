@@ -81,12 +81,14 @@ class _SignUpViewState extends State<SignUpView> {
                   if (state is SignUpFailure) {
                     showCustomSnacBar(
                       context,
+                      title: "Sign Up Failed",
                       message: state.errMessage,
                       contentType: ContentType.failure,
                     );
                   } else if (state is SignUpSuccess) {
                     showCustomSnacBar(
                       context,
+                      title: "Sign Up Successfully",
                       message:
                           "Sign Up Successfully, Check your email for verification",
                       contentType: ContentType.success,

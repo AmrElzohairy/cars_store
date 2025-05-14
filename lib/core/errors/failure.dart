@@ -51,7 +51,7 @@ class ServerFailure extends Failure {
         statusCode == 401 ||
         statusCode == 403 ||
         statusCode == 422) {
-      return ServerFailure(response);
+      return ServerFailure(response["message"]);
     } else if (statusCode == 500) {
       return ServerFailure("هناك مشكلة في الخادم يرجى المحاولة لاحقا");
     } else {
