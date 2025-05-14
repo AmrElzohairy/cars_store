@@ -12,12 +12,10 @@ final class SignUpCubitInitial extends SignUpCubitState {}
 final class SignUpLoading extends SignUpCubitState {}
 
 final class SignUpSuccess extends SignUpCubitState {
-  final String message;
-
-  const SignUpSuccess(this.message);
+  const SignUpSuccess();
 
   @override
-  List<Object> get props => [message];
+  List<Object> get props => [];
 }
 
 final class SignUpFailure extends SignUpCubitState {
