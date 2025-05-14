@@ -8,3 +8,23 @@ sealed class SignUpCubitState extends Equatable {
 }
 
 final class SignUpCubitInitial extends SignUpCubitState {}
+
+final class SignUpLoading extends SignUpCubitState {}
+
+final class SignUpSuccess extends SignUpCubitState {
+  final String message;
+
+  const SignUpSuccess(this.message);
+
+  @override
+  List<Object> get props => [message];
+}
+
+final class SignUpFailure extends SignUpCubitState {
+  final String errMessage;
+
+  const SignUpFailure(this.errMessage);
+
+  @override
+  List<Object> get props => [errMessage];
+}
