@@ -2,7 +2,7 @@ import 'package:cars_store/core/cache/cache_constants.dart';
 import 'package:cars_store/core/cache/cache_helper.dart';
 import 'package:cars_store/core/helpers/service_locator.dart';
 import 'package:cars_store/feature/auth/domain/repo/auth_repo.dart';
-import 'package:cars_store/feature/auth/presentation/cubits/cubit/sign_in_cubit.dart';
+import 'package:cars_store/feature/auth/presentation/cubits/sign_in_cubit/sign_in_cubit.dart';
 import 'package:cars_store/feature/auth/presentation/views/login_view.dart';
 import 'package:cars_store/feature/auth/presentation/views/sign_up_view.dart';
 import 'package:cars_store/feature/home/presentation/views/home_view.dart';

@@ -4,7 +4,7 @@ import 'package:cars_store/core/cache/cache_helper.dart';
 import 'package:cars_store/core/widgets/custom_app_button.dart';
 import 'package:cars_store/core/widgets/custom_snac_bar.dart';
 import 'package:cars_store/feature/auth/data/models/sign_in_body.dart';
-import 'package:cars_store/feature/auth/presentation/cubits/cubit/sign_in_cubit.dart';
+import 'package:cars_store/feature/auth/presentation/cubits/sign_in_cubit/sign_in_cubit.dart';
 import 'package:cars_store/feature/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
