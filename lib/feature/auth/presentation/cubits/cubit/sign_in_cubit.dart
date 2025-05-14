@@ -10,7 +10,7 @@ class SignInCubit extends Cubit<SignInState> {
   SignInCubit({required this.authRepo}) : super(SignInInitial());
   final AuthRepo authRepo;
 
-  Future<void> signIn(SignInBody signInBody) async {
+  Future<void> signIn(SignInBodyModel signInBody) async {
     emit(SignInLoading());
     var result = await authRepo.signIn(signInBody);
     result.fold(

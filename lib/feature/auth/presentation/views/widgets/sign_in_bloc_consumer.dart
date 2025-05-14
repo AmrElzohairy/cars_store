@@ -51,7 +51,7 @@ class SignInBlocConsumer extends StatelessWidget {
           onPressed: () {
             if (formKey.currentState!.validate()) {
               signInCubit.signIn(
-                SignInBody(
+                SignInBodyModel(
                   email: emailController.text,
                   password: passwordController.text,
                 ),
