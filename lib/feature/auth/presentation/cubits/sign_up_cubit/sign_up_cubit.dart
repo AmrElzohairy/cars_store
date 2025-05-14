@@ -3,11 +3,11 @@ import 'package:cars_store/feature/auth/domain/repo/auth_repo.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-part 'sign_up_cubit_state.dart';
+part 'sign_up_state.dart';
 
-class SignUpCubitCubit extends Cubit<SignUpCubitState> {
+class SignUpCubit extends Cubit<SignUpCubitState> {
   final AuthRepo authRepo;
-  SignUpCubitCubit(this.authRepo) : super(SignUpCubitInitial());
+  SignUpCubit({required this.authRepo}) : super(SignUpCubitInitial());
 
   Future<void> signUp(SignUpBodyModel signUpBody) async {
     emit(SignUpLoading());

@@ -1,4 +1,4 @@
-part of 'sign_up_cubit_cubit.dart';
+part of 'sign_up_cubit.dart';
 
 sealed class SignUpCubitState extends Equatable {
   const SignUpCubitState();
