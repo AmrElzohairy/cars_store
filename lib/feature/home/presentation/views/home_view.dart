@@ -2,6 +2,7 @@ import 'package:cars_store/core/utils/app_colors.dart';
 import 'package:cars_store/core/utils/assets.dart';
 import 'package:cars_store/core/utils/spacing_widgets.dart';
 import 'package:cars_store/core/widgets/custom_search_field.dart';
+import 'package:cars_store/feature/home/presentation/views/widgets/featured_cars_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -37,6 +38,8 @@ class HomeView extends StatelessWidget {
                 ],
               ),
             ),
+            const SliverToBoxAdapter(child: VerticalSpace(height: 20)),
+            const SliverToBoxAdapter(child: FeaturedCarsListView()),
           ],
         ),
       ),

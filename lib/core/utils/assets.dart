@@ -14,6 +14,10 @@ class Assets {
   /// assets/images/email-1-svgrepo-com.svg
   static const String imagesEmail1SvgrepoCom = "assets/images/email-1-svgrepo-com.svg";
 
+  /// Assets for imagesFeaturedBadge
+  /// assets/images/featured_Badge.svg
+  static const String imagesFeaturedBadge = "assets/images/featured_Badge.svg";
+
   /// Assets for imagesFilterIcon
   /// assets/images/filter_icon.svg
   static const String imagesFilterIcon = "assets/images/filter_icon.svg";
@@ -37,6 +41,10 @@ class Assets {
   /// Assets for imagesSplashBg
   /// assets/images/splash_bg.png
   static const String imagesSplashBg = "assets/images/splash_bg.png";
+
+  /// Assets for imagesTeslaCarTest
+  /// assets/images/Tesla_car_test.png
+  static const String imagesTeslaCarTest = "assets/images/Tesla_car_test.png";
 
   /// Assets for imagesUsernameIcon
   /// assets/images/username_icon.svg
