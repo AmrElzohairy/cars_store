@@ -6,7 +6,6 @@ import 'package:cars_store/feature/auth/presentation/views/widgets/custom_text_r
 import 'package:cars_store/feature/auth/presentation/views/widgets/login_form.dart';
 import 'package:cars_store/feature/auth/presentation/views/widgets/sign_in_bloc_consumer.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class LoginView extends StatefulWidget {
@@ -50,7 +49,7 @@ class _LoginViewState extends State<LoginView> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset(Assets.imagesLogo, width: 76.w, height: 76.h),
+                  Image.asset(Assets.imagesLogo, width: 76, height: 76),
                 ],
               ),
               const VerticalSpace(height: 50),

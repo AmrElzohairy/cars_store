@@ -2,7 +2,6 @@ import 'package:cars_store/feature/auth/presentation/views/widgets/custom_sign_u
 import 'package:cars_store/feature/auth/presentation/views/widgets/custom_text_row.dart';
 import 'package:cars_store/feature/auth/presentation/views/widgets/sign_up_bloc_consumer.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/utils/app_styles.dart';
@@ -55,7 +54,7 @@ class _SignUpViewState extends State<SignUpView> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset(Assets.imagesLogo, width: 76.w, height: 76.h),
+                  Image.asset(Assets.imagesLogo, width: 76, height: 76),
                 ],
               ),
               const VerticalSpace(height: 50),

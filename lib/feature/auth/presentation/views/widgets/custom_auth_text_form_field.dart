@@ -1,7 +1,6 @@
 import 'package:cars_store/core/utils/app_colors.dart';
 import 'package:cars_store/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CustomAuthTextFormField extends StatelessWidget {
@@ -24,7 +23,7 @@ class CustomAuthTextFormField extends StatelessWidget {
     return Container(
       decoration: ShapeDecoration(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.r),
+          borderRadius: BorderRadius.circular(10),
         ),
         shadows: const [
           BoxShadow(
@@ -52,7 +51,7 @@ class CustomAuthTextFormField extends StatelessWidget {
           labelText: labelText,
           labelStyle: AppStyles.textFieldStyle,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.r),
+            borderRadius: BorderRadius.circular(10),
             borderSide: BorderSide.none,
           ),
         ),

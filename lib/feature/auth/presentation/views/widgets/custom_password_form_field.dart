@@ -1,7 +1,6 @@
 import 'package:cars_store/core/utils/app_colors.dart';
 import 'package:cars_store/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CustomPasswordFormField extends StatefulWidget {
@@ -38,9 +37,7 @@ class _CustomPasswordFormFieldState extends State<CustomPasswordFormField> {
   Widget build(BuildContext context) {
     return Container(
       decoration: ShapeDecoration(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.r),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         shadows: const [
           BoxShadow(
             color: Color(0x0C323247),
@@ -68,7 +65,7 @@ class _CustomPasswordFormFieldState extends State<CustomPasswordFormField> {
           labelText: widget.labelText,
           labelStyle: AppStyles.textFieldStyle,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.r),
+            borderRadius: BorderRadius.circular(10),
             borderSide: BorderSide.none,
           ),
           suffixIcon: IconButton(
