@@ -1,12 +1,10 @@
 import 'package:cars_store/core/utils/app_colors.dart';
-import 'package:cars_store/core/utils/assets.dart';
 import 'package:cars_store/core/utils/spacing_widgets.dart';
-import 'package:cars_store/core/widgets/custom_search_field.dart';
 import 'package:cars_store/feature/home/presentation/views/widgets/featured_cars_list_view.dart';
 import 'package:cars_store/feature/home/presentation/views/widgets/home_recommended_widget.dart';
+import 'package:cars_store/feature/home/presentation/views/widgets/home_search_field_and_filters.dart';
 import 'package:cars_store/feature/home/presentation/views/widgets/home_sliver_grid_builder.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -31,15 +29,7 @@ class HomeView extends StatelessWidget {
         child: CustomScrollView(
           slivers: [
             const SliverToBoxAdapter(child: VerticalSpace(height: 20)),
-            SliverToBoxAdapter(
-              child: Row(
-                children: [
-                  const CustomSearchField(),
-                  const HorizontalSpace(width: 10),
-                  SvgPicture.asset(Assets.imagesFilterIcon),
-                ],
-              ),
-            ),
+            const SliverToBoxAdapter(child: HomeSearchFieldAndFilters()),
             const SliverToBoxAdapter(child: VerticalSpace(height: 20)),
             const SliverToBoxAdapter(child: FeaturedCarsListView()),
             const SliverToBoxAdapter(child: VerticalSpace(height: 20)),
