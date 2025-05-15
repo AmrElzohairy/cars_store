@@ -4,52 +4,63 @@ import 'package:flutter/material.dart';
 
 class AppStyles {
   static TextStyle font20SemiBoldPrimary(BuildContext context) => TextStyle(
-        color: AppColors.textPrimary,
-        fontSize: getResponsiveFontSize(context, fontSize: 20),
-        fontWeight: FontWeight.w600,
-      );
+    color: AppColors.textPrimary,
+    fontSize: getResponsiveFontSize(context, fontSize: 20),
+    fontWeight: FontWeight.w600,
+  );
 
   static TextStyle font14RegularBlack(BuildContext context) => TextStyle(
-        color: AppColors.black,
-        fontSize: getResponsiveFontSize(context, fontSize: 14),
-        fontWeight: FontWeight.w400,
-      );
+    color: AppColors.black,
+    fontSize: getResponsiveFontSize(context, fontSize: 14),
+    fontWeight: FontWeight.w400,
+  );
 
   static TextStyle textFieldStyle(BuildContext context) => TextStyle(
-        color: AppColors.cadetGray,
-        fontSize: getResponsiveFontSize(context, fontSize: 16),
-        fontWeight: FontWeight.w600,
-      );
+    color: AppColors.cadetGray,
+    fontSize: getResponsiveFontSize(context, fontSize: 16),
+    fontWeight: FontWeight.w600,
+  );
 
   static TextStyle buttonStyle(BuildContext context) => TextStyle(
-        color: AppColors.white,
-        fontSize: getResponsiveFontSize(context, fontSize: 18),
-        fontWeight: FontWeight.w600,
-      );
+    color: AppColors.white,
+    fontSize: getResponsiveFontSize(context, fontSize: 18),
+    fontWeight: FontWeight.w600,
+  );
 
-  static TextStyle font14MediumPrimaryWithOpacity(BuildContext context) => TextStyle(
-        color: AppColors.textPrimary.withValues(alpha:  0.4),
+  static TextStyle font14MediumPrimaryWithOpacity(BuildContext context) =>
+      TextStyle(
+        color: AppColors.textPrimary.withValues(alpha: 0.4),
         fontSize: getResponsiveFontSize(context, fontSize: 14),
         fontWeight: FontWeight.w500,
       );
 
-  static TextStyle font14MediumPrimaryPrimaryColor(BuildContext context) => TextStyle(
+  static TextStyle font14MediumPrimaryPrimaryColor(BuildContext context) =>
+      TextStyle(
         color: AppColors.primaryColor,
         fontSize: getResponsiveFontSize(context, fontSize: 14),
         fontWeight: FontWeight.w500,
       );
 
   static TextStyle font15SemiBoldWhite(BuildContext context) => TextStyle(
-        color: Colors.white,
-        fontSize: getResponsiveFontSize(context, fontSize: 15),
-        fontWeight: FontWeight.w600,
-      );
+    color: Colors.white,
+    fontSize: getResponsiveFontSize(context, fontSize: 15),
+    fontWeight: FontWeight.w600,
+  );
 
   static TextStyle font16BoldWhite(BuildContext context) => TextStyle(
-        color: AppColors.white,
-        fontSize: getResponsiveFontSize(context, fontSize: 16),
-        fontWeight: FontWeight.w700,
-      );
+    color: AppColors.white,
+    fontSize: getResponsiveFontSize(context, fontSize: 16),
+    fontWeight: FontWeight.w700,
+  );
 
-      
+  static TextStyle font20MediumBlack(BuildContext context) => TextStyle(
+    color: AppColors.textPrimary,
+    fontSize: getResponsiveFontSize(context, fontSize: 20),
+    fontWeight: FontWeight.w500,
+  );
+  static TextStyle font16MediumPrimary(BuildContext context) => TextStyle(
+    color: AppColors.primaryColor,
+    fontSize: getResponsiveFontSize(context, fontSize: 16),
+    fontWeight: FontWeight.w500,
+  );
 }
