@@ -45,5 +45,11 @@ class AppStyles {
         fontWeight: FontWeight.w600,
       );
 
+  static TextStyle font16BoldWhite(BuildContext context) => TextStyle(
+        color: AppColors.white,
+        fontSize: getResponsiveFontSize(context, fontSize: 16),
+        fontWeight: FontWeight.w700,
+      );
+
       
 }
