@@ -29,7 +29,7 @@ class CustomAppButton extends StatelessWidget {
         child:
             isLoading
                 ? const CustomButtonLoadingIndicator()
-                : Text(text, style: AppStyles.buttonStyle),
+                : Text(text, style: AppStyles.buttonStyle(context)),
       ),
     );
   }

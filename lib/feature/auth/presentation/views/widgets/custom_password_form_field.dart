@@ -63,7 +63,7 @@ class _CustomPasswordFormFieldState extends State<CustomPasswordFormField> {
           filled: true,
           prefixIcon: SvgPicture.asset(widget.icon, fit: BoxFit.scaleDown),
           labelText: widget.labelText,
-          labelStyle: AppStyles.textFieldStyle,
+          labelStyle: AppStyles.textFieldStyle(context),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
             borderSide: BorderSide.none,

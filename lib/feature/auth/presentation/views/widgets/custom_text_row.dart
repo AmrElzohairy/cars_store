@@ -17,13 +17,13 @@ class CustomTextRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(askText, style: AppStyles.font14MediumPrimaryWithOpacity),
+        Text(askText, style: AppStyles.font14MediumPrimaryWithOpacity(context)),
         const HorizontalSpace(width: 5),
         InkWell(
           onTap: onTap,
           child: Text(
             inkWellText,
-            style: AppStyles.font14MediumPrimaryPrimaryColor,
+            style: AppStyles.font14MediumPrimaryPrimaryColor(context),
           ),
         ),
       ],

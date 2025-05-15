@@ -21,7 +21,7 @@ class FeaturedCarsListItem extends StatelessWidget {
           left: 20,
           child: Text(
             "Tesla model 3 standard range plus",
-            style: AppStyles.font15SemiBoldWhite,
+            style: AppStyles.font15SemiBoldWhite(context),
           ),
         ),
         Positioned(

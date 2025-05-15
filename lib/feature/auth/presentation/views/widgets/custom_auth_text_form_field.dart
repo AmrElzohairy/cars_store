@@ -49,7 +49,7 @@ class CustomAuthTextFormField extends StatelessWidget {
           filled: true,
           prefixIcon: SvgPicture.asset(icon, fit: BoxFit.scaleDown),
           labelText: labelText,
-          labelStyle: AppStyles.textFieldStyle,
+          labelStyle: AppStyles.textFieldStyle(context),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
             borderSide: BorderSide.none,
