@@ -6,6 +6,10 @@ class Assets {
   /// assets/images/android12_splash_bg.png
   static const String imagesAndroid12SplashBg = "assets/images/android12_splash_bg.png";
 
+  /// Assets for imagesAudiCarTest
+  /// assets/images/audi_car_test.png
+  static const String imagesAudiCarTest = "assets/images/audi_car_test.png";
+
   /// Assets for imagesCarStoreAppIcon
   /// assets/images/car_store_app_icon.png
   static const String imagesCarStoreAppIcon = "assets/images/car_store_app_icon.png";
