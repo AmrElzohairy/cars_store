@@ -69,10 +69,11 @@ class AppStyles {
     fontWeight: FontWeight.w500,
   );
 
-  static TextStyle font12MediumPrimaryBlackWithOpacity(BuildContext context) => TextStyle(
-    color: AppColors.textPrimary.withValues(alpha: 0.5),
-    fontSize: getResponsiveFontSize(context, fontSize: 12),
-    fontWeight: FontWeight.w500,
-    letterSpacing: -0.41,
-  );
+  static TextStyle font12MediumPrimaryBlackWithOpacity(BuildContext context) =>
+      TextStyle(
+        color: AppColors.textPrimary.withValues(alpha: 0.5),
+        fontSize: getResponsiveFontSize(context, fontSize: 12),
+        fontWeight: FontWeight.w500,
+        letterSpacing: -0.41,
+      );
 }

@@ -1,4 +1,3 @@
-
 import 'package:cars_store/core/utils/app_colors.dart';
 import 'package:cars_store/core/utils/assets.dart';
 import 'package:flutter/material.dart';
@@ -13,10 +12,12 @@ class HomeGridViewItem extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Stack(
           children: [
-            Image.asset(Assets.imagesAudiCarTest, height: height * 0.27),
+            Image.asset(Assets.imagesAudiCarTest),
             Positioned(
               top: height * 0.015,
               right: width * 0.04,
@@ -31,18 +32,13 @@ class HomeGridViewItem extends StatelessWidget {
             ),
           ],
         ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Audi autron Premium",
-              style: AppStyles.font15MediumBlack(context),
-            ),
-            Text(
-              "Rs. 1,00,000",
-              style: AppStyles.font12MediumPrimaryBlackWithOpacity(context),
-            ),
-          ],
+        Text(
+          "Audi autron Premium",
+          style: AppStyles.font15MediumBlack(context),
+        ),
+        Text(
+          "Rs. 1,00,000",
+          style: AppStyles.font12MediumPrimaryBlackWithOpacity(context),
         ),
       ],
     );
