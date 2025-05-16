@@ -1,4 +1,4 @@
-import 'package:cars_store/feature/home/data/models/featured_cars_model/featured_cars_model.dart';
+import 'package:cars_store/feature/home/data/models/recommended_cars_model/recommended_cars_model.dart';
 import 'package:equatable/equatable.dart';
 
 class RecommendedCarsEntity extends Equatable {
@@ -19,7 +19,9 @@ class RecommendedCarsEntity extends Equatable {
   @override
   List<Object?> get props => [id, name, images];
 
-  factory RecommendedCarsEntity.fromFeaturedCarsModel(FeaturedCarsModel model) {
+  factory RecommendedCarsEntity.fromRecommendedCarsModel(
+    RecommendedCarsModel model,
+  ) {
     return RecommendedCarsEntity(
       id: model.carId ?? '',
       name: model.modelName ?? '',
