@@ -1,7 +1,10 @@
 import 'package:cars_store/core/utils/app_colors.dart';
 import 'package:cars_store/core/utils/app_styles.dart';
+import 'package:cars_store/core/utils/media_query_size.dart';
 import 'package:cars_store/feature/home/domain/entity/home_featured_list_entity.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../../core/widgets/custom_cached_network_image.dart';
 
 class FeaturedCarsListItem extends StatelessWidget {
   const FeaturedCarsListItem({super.key, required this.carEntity});
@@ -16,9 +19,11 @@ class FeaturedCarsListItem extends StatelessWidget {
       child: Stack(
         children: [
           SizedBox(
+            height: height(context) * 0.2,
+            width: width(context) * 0.82,
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Image.network(carEntity.images.first),
+              borderRadius: BorderRadius.circular(12),
+              child: CustomCachedNetworkImage(imageUrl: carEntity.images.first),
             ),
           ),
           Positioned(

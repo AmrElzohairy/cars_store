@@ -12,6 +12,7 @@ class FeaturedCarsListView extends StatelessWidget {
     return SizedBox(
       height: height(context) * 0.2,
       child: ListView.builder(
+        physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: carEntity.length,
         itemBuilder: (context, index) {

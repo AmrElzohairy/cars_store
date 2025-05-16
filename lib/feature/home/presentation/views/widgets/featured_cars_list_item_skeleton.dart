@@ -3,6 +3,8 @@ import 'package:cars_store/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
+import '../../../../../core/utils/media_query_size.dart';
+
 class FeaturedCarsListItemSkeleton extends StatelessWidget {
   const FeaturedCarsListItemSkeleton({super.key});
 
@@ -10,33 +12,39 @@ class FeaturedCarsListItemSkeleton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Skeletonizer(
       enabled: true,
-      child: Banner(
-        location: BannerLocation.topStart,
-        color: AppColors.primaryColor,
-        message: "Featured",
-        textStyle: AppStyles.font16BoldWhite(context),
-        child: Stack(
-          children: [
-            SizedBox(
-              height: 180, // Adjust height as needed for your design
-              width: double.infinity,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                // Using a Container as a placeholder for the image
-                child: Container(
-                  color: Colors.grey.shade300,
+      child: SizedBox(
+        height: height(context) * 0.2,
+        child: ListView.builder(
+          physics: const BouncingScrollPhysics(),
+          itemCount: 10,
+          itemBuilder:
+              (context, index) => Banner(
+                location: BannerLocation.topStart,
+                color: AppColors.primaryColor,
+                message: "Featured",
+                textStyle: AppStyles.font16BoldWhite(context),
+                child: Stack(
+                  children: [
+                    SizedBox(
+                      height: 180, // Adjust height as needed for your design
+                      width: double.infinity,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        // Using a Container as a placeholder for the image
+                        child: Container(color: Colors.grey.shade300),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 10,
+                      left: 20,
+                      child: Text(
+                        "Car Name Placeholder", // Placeholder text
+                        style: AppStyles.font15SemiBoldWhite(context),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ),
-            Positioned(
-              bottom: 10,
-              left: 20,
-              child: Text(
-                "Car Name Placeholder", // Placeholder text
-                style: AppStyles.font15SemiBoldWhite(context),
-              ),
-            ),
-          ],
         ),
       ),
     );
