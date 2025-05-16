@@ -12,7 +12,7 @@ final class FeaturedCarsInitial extends FeaturedCarsState {}
 final class FeaturedCarsLoading extends FeaturedCarsState {}
 
 final class FeaturedCarsLoaded extends FeaturedCarsState {
-  final List<HomeFeaturedListEntity> cars;
+  final List<FeaturedCarsEntity> cars;
   const FeaturedCarsLoaded({required this.cars});
 
   @override

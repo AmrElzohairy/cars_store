@@ -15,8 +15,7 @@ class HomeRepoImpl extends HomeRepo {
   HomeRepoImpl({required this.api});
 
   @override
-  Future<Either<Failure, List<HomeFeaturedListEntity>>>
-  getFeaturedCars() async {
+  Future<Either<Failure, List<FeaturedCarsEntity>>> getFeaturedCars() async {
     try {
       final response = await api.get(ApiKeys.featuredCars);
 
@@ -27,12 +26,10 @@ class HomeRepoImpl extends HomeRepo {
       final List<FeaturedCarsModel> carModels =
           response.map((e) => FeaturedCarsModel.fromJson(e)).toList();
 
-      final List<HomeFeaturedListEntity> carEntities =
+      final List<FeaturedCarsEntity> carEntities =
           carModels
               .where((model) => model.isFeatured == true)
-              .map(
-                (model) => HomeFeaturedListEntity.fromFeaturedCarsModel(model),
-              )
+              .map((model) => FeaturedCarsEntity.fromFeaturedCarsModel(model))
               .toList();
 
       return right(carEntities);

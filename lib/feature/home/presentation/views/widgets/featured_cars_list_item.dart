@@ -8,7 +8,7 @@ import '../../../../../core/widgets/custom_cached_network_image.dart';
 
 class FeaturedCarsListItem extends StatelessWidget {
   const FeaturedCarsListItem({super.key, required this.carEntity});
-  final HomeFeaturedListEntity carEntity;
+  final FeaturedCarsEntity carEntity;
   @override
   Widget build(BuildContext context) {
     return Banner(

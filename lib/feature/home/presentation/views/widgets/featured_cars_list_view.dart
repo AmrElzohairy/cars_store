@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 class FeaturedCarsListView extends StatelessWidget {
   const FeaturedCarsListView({super.key, required this.carEntity});
-  final List<HomeFeaturedListEntity> carEntity;
+  final List<FeaturedCarsEntity> carEntity;
 
   @override
   Widget build(BuildContext context) {
