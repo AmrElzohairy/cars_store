@@ -24,7 +24,7 @@ class FeaturedCarsListItemSkeleton extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 // Using a Container as a placeholder for the image
                 child: Container(
-                  color: Colors.grey,
+                  color: Colors.grey.shade300,
                 ),
               ),
             ),
