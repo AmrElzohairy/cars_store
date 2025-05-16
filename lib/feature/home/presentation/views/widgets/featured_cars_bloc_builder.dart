@@ -13,7 +13,7 @@ class FeaturedCarsBlocBuilder extends StatelessWidget {
         if (state is FeaturedCarsLoading) {
           return const Center(child: CircularProgressIndicator());
         } else if (state is FeaturedCarsLoaded) {
-          return const FeaturedCarsListView();
+          return  FeaturedCarsListView(carEntity: state.cars,);
         } else if (state is FeaturedCarsError) {
           return Center(child: Text(state.errMessage));
         }
