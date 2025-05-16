@@ -1,10 +1,10 @@
-import 'package:cars_store/feature/home/data/models/featured_cars_model.dart';
+import 'package:cars_store/feature/home/data/models/featured_cars_model/featured_cars_model.dart';
 import 'package:equatable/equatable.dart';
 
 class HomeFeaturedListEntity extends Equatable {
   final String id;
   final String name;
-  final List<String> images;
+  final List<dynamic> images;  // This is already List<dynamic> which is correct
 
   const HomeFeaturedListEntity({
     required this.id,
@@ -19,9 +19,9 @@ class HomeFeaturedListEntity extends Equatable {
     FeaturedCarsModel model,
   ) {
     return HomeFeaturedListEntity(
-      id: model.modelId!,
-      name: model.modelName!,
-      images: model.imagesUrls!,
+      id: model.modelId ?? '', 
+      name: model.modelName ?? '',  
+      images: model.imagesUrls ?? [], 
     );
   }
 }

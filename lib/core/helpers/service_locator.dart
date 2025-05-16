@@ -12,5 +12,4 @@ void setupDependencies() {
   getIt.registerSingleton<ApiService>(ApiService(Dio()));
   getIt.registerSingleton<AuthRepo>(AuthRepoImpl(api: getIt<ApiService>()));
   getIt.registerSingleton<HomeRepo>(HomeRepoImpl(api: getIt<ApiService>()));
-
 }
