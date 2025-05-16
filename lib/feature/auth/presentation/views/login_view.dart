@@ -55,7 +55,10 @@ class _LoginViewState extends State<LoginView> {
               const VerticalSpace(height: 50),
               Text('Login ', style: AppStyles.font20SemiBoldPrimary(context)),
               const VerticalSpace(height: 5),
-              Text('Welcome to CarStore', style: AppStyles.font14RegularBlack(context)),
+              Text(
+                'Welcome to CarStore',
+                style: AppStyles.font14RegularBlack(context),
+              ),
               const VerticalSpace(height: 44),
               LoginForm(
                 formKey: formKey,

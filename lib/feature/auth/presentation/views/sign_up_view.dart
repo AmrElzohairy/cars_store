@@ -60,7 +60,10 @@ class _SignUpViewState extends State<SignUpView> {
               const VerticalSpace(height: 50),
               Text('Sign Up ', style: AppStyles.font20SemiBoldPrimary(context)),
               const VerticalSpace(height: 5),
-              Text('Find your dream car', style: AppStyles.font14RegularBlack(context)),
+              Text(
+                'Find your dream car',
+                style: AppStyles.font14RegularBlack(context),
+              ),
               const VerticalSpace(height: 44),
               CustomSignUpForm(
                 formKey: formKey,
