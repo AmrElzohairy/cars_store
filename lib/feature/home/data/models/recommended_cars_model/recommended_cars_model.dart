@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class FeaturedCarsModel extends Equatable {
+class RecommendedCarsModel extends Equatable {
   final String? carId;
   final String? carBrand;
   final List<dynamic>? imagesUrls;
@@ -11,7 +11,7 @@ class FeaturedCarsModel extends Equatable {
   final bool? isFeatured;
   final bool? isRecommended;
 
-  const FeaturedCarsModel({
+  const RecommendedCarsModel({
     this.carId,
     this.carBrand,
     this.imagesUrls,
@@ -23,8 +23,8 @@ class FeaturedCarsModel extends Equatable {
     this.isRecommended,
   });
 
-  factory FeaturedCarsModel.fromJson(Map<String, dynamic> json) {
-    return FeaturedCarsModel(
+  factory RecommendedCarsModel.fromJson(Map<String, dynamic> json) {
+    return RecommendedCarsModel(
       carId: json['carId'] as String?,
       carBrand: json['carBrand'] as String?,
       imagesUrls:
