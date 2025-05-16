@@ -8,6 +8,7 @@ import 'package:cars_store/feature/auth/presentation/views/login_view.dart';
 import 'package:cars_store/feature/auth/presentation/views/sign_up_view.dart';
 import 'package:cars_store/feature/home/domain/repo/home_repo.dart';
 import 'package:cars_store/feature/home/presentation/cubits/featured_cars_cubit/featured_cars_cubit.dart';
+import 'package:cars_store/feature/home/presentation/cubits/recommended_cars_cubit/recommended_cars_cubit.dart';
 import 'package:cars_store/feature/home/presentation/views/home_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -42,6 +43,11 @@ abstract class AppRouter {
               providers: [
                 BlocProvider(
                   create: (context) => FeaturedCarsCubit(getIt<HomeRepo>()),
+                ),
+                BlocProvider(
+                  create:
+                      (context) =>
+                          RecommendedCarsCubit(homeRepo: getIt<HomeRepo>()),
                 ),
               ],
               child: const HomeView(),
