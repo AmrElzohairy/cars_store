@@ -6,6 +6,8 @@ import 'package:cars_store/feature/auth/presentation/cubits/sign_in_cubit/sign_i
 import 'package:cars_store/feature/auth/presentation/cubits/sign_up_cubit/sign_up_cubit.dart';
 import 'package:cars_store/feature/auth/presentation/views/login_view.dart';
 import 'package:cars_store/feature/auth/presentation/views/sign_up_view.dart';
+import 'package:cars_store/feature/home/domain/repo/home_repo.dart';
+import 'package:cars_store/feature/home/presentation/cubits/featured_cars_cubit/featured_cars_cubit.dart';
 import 'package:cars_store/feature/home/presentation/views/home_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -35,7 +37,15 @@ abstract class AppRouter {
       GoRoute(
         path: HomeView.routeName,
         name: HomeView.routeName,
-        builder: (context, state) => const HomeView(),
+        builder:
+            (context, state) => MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (context) => FeaturedCarsCubit(getIt<HomeRepo>()),
+                ),
+              ],
+              child: const HomeView(),
+            ),
       ),
     ],
   );
