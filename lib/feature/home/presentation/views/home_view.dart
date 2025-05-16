@@ -1,7 +1,7 @@
 import 'package:cars_store/core/utils/app_colors.dart';
 import 'package:cars_store/core/utils/spacing_widgets.dart';
 import 'package:cars_store/feature/home/presentation/cubits/featured_cars_cubit/featured_cars_cubit.dart';
-import 'package:cars_store/feature/home/presentation/views/widgets/featured_cars_list_view.dart';
+import 'package:cars_store/feature/home/presentation/views/widgets/featured_cars_bloc_builder.dart';
 import 'package:cars_store/feature/home/presentation/views/widgets/home_recommended_widget.dart';
 import 'package:cars_store/feature/home/presentation/views/widgets/home_search_field_and_filters.dart';
 import 'package:cars_store/feature/home/presentation/views/widgets/home_sliver_grid_builder.dart';
@@ -46,7 +46,7 @@ class _HomeViewState extends State<HomeView> {
             const SliverToBoxAdapter(child: VerticalSpace(height: 20)),
             const SliverToBoxAdapter(child: HomeSearchFieldAndFilters()),
             const SliverToBoxAdapter(child: VerticalSpace(height: 20)),
-            const SliverToBoxAdapter(child: FeaturedCarsListView()),
+            const SliverToBoxAdapter(child: FeaturedCarsBlocBuilder()),
             const SliverToBoxAdapter(child: VerticalSpace(height: 20)),
             SliverToBoxAdapter(child: HomeRecommendedWidget(onTap: () {})),
             const SliverToBoxAdapter(child: VerticalSpace(height: 20)),
