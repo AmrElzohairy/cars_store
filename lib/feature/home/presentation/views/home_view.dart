@@ -4,7 +4,7 @@ import 'package:cars_store/feature/home/presentation/cubits/featured_cars_cubit/
 import 'package:cars_store/feature/home/presentation/views/widgets/featured_cars_bloc_builder.dart';
 import 'package:cars_store/feature/home/presentation/views/widgets/home_recommended_widget.dart';
 import 'package:cars_store/feature/home/presentation/views/widgets/home_search_field_and_filters.dart';
-import 'package:cars_store/feature/home/presentation/views/widgets/home_sliver_grid_builder.dart';
+import 'package:cars_store/feature/home/presentation/views/widgets/home_sliver_grid_bloc_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -50,7 +50,7 @@ class _HomeViewState extends State<HomeView> {
             const SliverToBoxAdapter(child: VerticalSpace(height: 20)),
             SliverToBoxAdapter(child: HomeRecommendedWidget(onTap: () {})),
             const SliverToBoxAdapter(child: VerticalSpace(height: 20)),
-            const HomeSliverGridBuilder(),
+            const HomeSliverGridBlocBuilder(),
           ],
         ),
       ),
