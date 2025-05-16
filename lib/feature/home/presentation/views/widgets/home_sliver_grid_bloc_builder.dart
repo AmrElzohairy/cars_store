@@ -15,7 +15,7 @@ class HomeSliverGridBlocBuilder extends StatelessWidget {
             child: Center(child: CircularProgressIndicator()),
           );
         } else if (state is RecommendedCarsLoaded) {
-          return const HomeSliverGridBuilder();
+          return HomeSliverGridBuilder(carsEntity: state.cars);
         } else if (state is RecommendedCarsError) {
           return SliverToBoxAdapter(
             child: Center(child: Text(state.errMessage)),
