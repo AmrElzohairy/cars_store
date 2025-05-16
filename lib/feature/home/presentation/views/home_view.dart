@@ -1,14 +1,29 @@
 import 'package:cars_store/core/utils/app_colors.dart';
 import 'package:cars_store/core/utils/spacing_widgets.dart';
+import 'package:cars_store/feature/home/presentation/cubits/featured_cars_cubit/featured_cars_cubit.dart';
 import 'package:cars_store/feature/home/presentation/views/widgets/featured_cars_list_view.dart';
 import 'package:cars_store/feature/home/presentation/views/widgets/home_recommended_widget.dart';
 import 'package:cars_store/feature/home/presentation/views/widgets/home_search_field_and_filters.dart';
 import 'package:cars_store/feature/home/presentation/views/widgets/home_sliver_grid_builder.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
   static const routeName = '/home_view';
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  @override
+  void initState() {
+    var featuredCarsCubit = context.read<FeaturedCarsCubit>();
+    featuredCarsCubit.getFeaturedCars();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
