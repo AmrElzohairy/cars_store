@@ -1,18 +1,19 @@
 import 'package:equatable/equatable.dart';
 
 class FeaturedCarsModel extends Equatable {
-  final String? modelId;
+  final String? carId;
   final String? carBrand;
-  final List<dynamic>? imagesUrls;  // Changed from List<String>? to List<dynamic>?
+  final List<dynamic>?
+  imagesUrls; // Changed from List<String>? to List<dynamic>?
   final String? modelName;
-  final num? price;  // Changed from int? to num? to handle potential doubles
+  final num? price; // Changed from int? to num? to handle potential doubles
   final String? description;
   final int? yearOfProduction;
   final bool? isFeatured;
   final bool? isRecommended;
 
   const FeaturedCarsModel({
-    this.modelId,
+    this.carId,
     this.carBrand,
     this.imagesUrls,
     this.modelName,
@@ -25,11 +26,15 @@ class FeaturedCarsModel extends Equatable {
 
   factory FeaturedCarsModel.fromJson(Map<String, dynamic> json) {
     return FeaturedCarsModel(
-      modelId: json['modelId'] as String?,
+      carId: json['carId'] as String?,
       carBrand: json['carBrand'] as String?,
-      imagesUrls: json['imagesUrls'] as List<dynamic>?,  // Changed from List<String>? to List<dynamic>?
+      imagesUrls:
+          json['imagesUrls']
+              as List<dynamic>?, // Changed from List<String>? to List<dynamic>?
       modelName: json['modelName'] as String?,
-      price: json['price'] as num?,  // Changed from int? to num? to handle potential doubles
+      price:
+          json['price']
+              as num?, // Changed from int? to num? to handle potential doubles
       description: json['description'] as String?,
       yearOfProduction: json['yearOfProduction'] as int?,
       isFeatured: json['isFeatured'] as bool?,
@@ -38,7 +43,7 @@ class FeaturedCarsModel extends Equatable {
   }
 
   Map<String, dynamic> toJson() => {
-    'modelId': modelId,
+    'carId': carId,
     'carBrand': carBrand,
     'imagesUrls': imagesUrls,
     'modelName': modelName,
@@ -52,7 +57,7 @@ class FeaturedCarsModel extends Equatable {
   @override
   List<Object?> get props {
     return [
-      modelId,
+      carId,
       carBrand,
       imagesUrls,
       modelName,

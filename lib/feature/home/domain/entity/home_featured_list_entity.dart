@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 class HomeFeaturedListEntity extends Equatable {
   final String id;
   final String name;
-  final List<dynamic> images;  // This is already List<dynamic> which is correct
+  final List<dynamic> images; // This is already List<dynamic> which is correct
 
   const HomeFeaturedListEntity({
     required this.id,
@@ -19,9 +19,9 @@ class HomeFeaturedListEntity extends Equatable {
     FeaturedCarsModel model,
   ) {
     return HomeFeaturedListEntity(
-      id: model.modelId ?? '', 
-      name: model.modelName ?? '',  
-      images: model.imagesUrls ?? [], 
+      id: model.carId ?? '',
+      name: model.modelName ?? '',
+      images: model.imagesUrls ?? [],
     );
   }
 }
