@@ -20,9 +20,9 @@ final class FeaturedCarsLoaded extends FeaturedCarsState {
 }
 
 final class FeaturedCarsError extends FeaturedCarsState {
-  final Failure failure;
-  const FeaturedCarsError({required this.failure});
+  final String errMessage;
+  const FeaturedCarsError({required this.errMessage});
 
   @override
-  List<Object> get props => [failure];
+  List<Object> get props => [errMessage];
 }
