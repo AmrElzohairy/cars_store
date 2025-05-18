@@ -5,7 +5,7 @@ import 'package:cars_store/core/widgets/custom_app_button.dart';
 import 'package:cars_store/core/widgets/custom_snac_bar.dart';
 import 'package:cars_store/feature/auth/data/models/sign_in_body.dart';
 import 'package:cars_store/feature/auth/presentation/cubits/sign_in_cubit/sign_in_cubit.dart';
-import 'package:cars_store/feature/home/presentation/views/home_view.dart';
+import 'package:cars_store/feature/main_views/presentation/views/main_views.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -27,7 +27,7 @@ class SignInBlocConsumer extends StatelessWidget {
     return BlocConsumer<SignInCubit, SignInState>(
       listener: (context, state) {
         if (state is SignInSuccess) {
-          context.goNamed(HomeView.routeName);
+          context.goNamed(MainViews.routeName);
           showCustomSnacBar(
             context,
             title: "Success",

@@ -11,6 +11,7 @@ import 'package:cars_store/feature/home/presentation/cubits/favorite_cubit/favor
 import 'package:cars_store/feature/home/presentation/cubits/featured_cars_cubit/featured_cars_cubit.dart';
 import 'package:cars_store/feature/home/presentation/cubits/recommended_cars_cubit/recommended_cars_cubit.dart';
 import 'package:cars_store/feature/home/presentation/views/home_view.dart';
+import 'package:cars_store/feature/main_views/presentation/views/main_views.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -60,6 +61,11 @@ abstract class AppRouter {
               child: const HomeView(),
             ),
       ),
+      GoRoute(
+        path: MainViews.routeName,
+        name: MainViews.routeName,
+        builder: (context, state) => const MainViews(),
+      ),
     ],
   );
 }
@@ -68,7 +74,7 @@ String isUserAuthenticated() {
   bool isLoggedIn =
       CacheHelper.getBool(key: CacheKeys.isAuthenticated) ?? false;
   if (isLoggedIn) {
-    return HomeView.routeName;
+    return MainViews.routeName;
   } else {
     return LoginView.routeName;
   }
