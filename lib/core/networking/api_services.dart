@@ -1,4 +1,5 @@
 import 'package:cars_store/core/networking/api_keys.dart';
+import 'package:cars_store/core/networking/auth_interceptor.dart';
 import 'package:dio/dio.dart';
 
 class ApiService {
@@ -6,6 +7,7 @@ class ApiService {
 
   ApiService(this.dio) {
     dio.options.baseUrl = ApiKeys.baserUrl;
+    dio.interceptors.add(AuthInterceptor());
     dio.interceptors.add(
       LogInterceptor(
         responseBody: true,
