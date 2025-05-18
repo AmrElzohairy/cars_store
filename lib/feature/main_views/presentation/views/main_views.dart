@@ -1,12 +1,6 @@
-import 'package:cars_store/feature/home/domain/repo/home_repo.dart';
-import 'package:cars_store/feature/home/presentation/cubits/favorite_cubit/favorite_cubit.dart';
-import 'package:cars_store/feature/home/presentation/cubits/featured_cars_cubit/featured_cars_cubit.dart';
-import 'package:cars_store/feature/home/presentation/cubits/recommended_cars_cubit/recommended_cars_cubit.dart';
-import 'package:cars_store/feature/home/presentation/views/home_view.dart';
+import 'package:cars_store/core/utils/app_colors.dart';
+import 'package:cars_store/feature/main_views/presentation/views/widgets/home_multi_bloc_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../core/helpers/service_locator.dart';
 
 class MainViews extends StatefulWidget {
   const MainViews({super.key});
@@ -22,44 +16,63 @@ class _MainViewsState extends State<MainViews> {
     return Scaffold(
       body: IndexedStack(
         index: currentIndex,
-        children: [
-          MultiBlocProvider(
-            providers: [
-              BlocProvider(
-                create:
-                    (context) => FeaturedCarsCubit(homeRepo: getIt<HomeRepo>()),
-              ),
-              BlocProvider(
-                create:
-                    (context) =>
-                        RecommendedCarsCubit(homeRepo: getIt<HomeRepo>()),
-              ),
-              BlocProvider(
-                create: (context) => FavoriteCubit(homeRepo: getIt<HomeRepo>()),
-              ),
-            ],
-            child: const HomeView(),
-          ),
-          const Center(child: Text('fAvorite')),
-          const Center(child: Text('Profile')),
+        children: const [
+          HomeMultiBlocProvider(),
+          Center(child: Text('Favorite')),
+          Center(child: Text('Profile')),
         ],
       ),
 
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: 'Favorite',
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        child: Container(
+          decoration: BoxDecoration(
+            color: AppColors.white,
+            borderRadius: BorderRadius.circular(25),
+            boxShadow: const [
+              BoxShadow(
+                color: Colors.black12,
+                spreadRadius: 2,
+                blurRadius: 2,
+                offset: Offset(0, 1),
+              ),
+            ],
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-        ],
-        currentIndex: currentIndex,
-        onTap: (index) {
-          setState(() {
-            currentIndex = index;
-          });
-        },
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(25),
+            child: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              backgroundColor: AppColors.white,
+              selectedItemColor: AppColors.primaryColor,
+              showSelectedLabels: false,
+              showUnselectedLabels: false,
+              iconSize: 28,
+              elevation: 0,
+              unselectedItemColor: AppColors.cadetGray,
+              selectedIconTheme: const IconThemeData(size: 28),
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home, size: 30),
+                  label: 'Home',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.favorite),
+                  label: 'Favorite',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.person),
+                  label: 'Profile',
+                ),
+              ],
+              currentIndex: currentIndex,
+              onTap: (index) {
+                setState(() {
+                  currentIndex = index;
+                });
+              },
+            ),
+          ),
+        ),
       ),
     );
   }
