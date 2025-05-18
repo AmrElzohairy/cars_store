@@ -74,4 +74,9 @@ class HomeRepoImpl extends HomeRepo {
       return left(ServerFailure(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, void>> toggelFavorite() async {
+    throw UnimplementedError();
+  }
 }
