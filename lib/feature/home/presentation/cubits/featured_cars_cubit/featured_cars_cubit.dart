@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'featured_cars_state.dart';
 
 class FeaturedCarsCubit extends Cubit<FeaturedCarsState> {
-  FeaturedCarsCubit(this.homeRepo) : super(FeaturedCarsInitial());
+  FeaturedCarsCubit({required this.homeRepo}) : super(FeaturedCarsInitial());
   final HomeRepo homeRepo;
 
   void getFeaturedCars() async {
