@@ -1,17 +1,34 @@
-import 'package:cars_store/core/utils/app_colors.dart';
 import 'package:cars_store/core/utils/spacing_widgets.dart';
 import 'package:cars_store/feature/home/domain/entity/recommended_cars_entity.dart';
+import 'package:cars_store/feature/home/presentation/cubits/favorite_cubit/favorite_cubit.dart';
+import 'package:cars_store/feature/home/presentation/views/widgets/favorite_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/utils/media_query_size.dart';
 import '../../../../../core/widgets/custom_cached_network_image.dart';
 
-class HomeGridViewItem extends StatelessWidget {
+class HomeGridViewItem extends StatefulWidget {
   const HomeGridViewItem({super.key, required this.carsEntity});
   final RecommendedCarsEntity carsEntity;
+
+  @override
+  State<HomeGridViewItem> createState() => _HomeGridViewItemState();
+}
+
+class _HomeGridViewItemState extends State<HomeGridViewItem> {
+  late bool isFavorite;
+
+  @override
+  void initState() {
+    isFavorite = widget.carsEntity.isLiked;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    var favoriteCubit = context.read<FavoriteCubit>();
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -20,7 +37,7 @@ class HomeGridViewItem extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: CustomCachedNetworkImage(
-                imageUrl: carsEntity.images.first,
+                imageUrl: widget.carsEntity.images.first,
                 height: height(context) * 0.22,
                 width: width(context) * 0.83,
               ),
@@ -28,28 +45,25 @@ class HomeGridViewItem extends StatelessWidget {
             Positioned(
               top: height(context) * 0.015,
               right: width(context) * 0.04,
-              child: Container(
-                padding: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: AppColors.white,
-                  borderRadius: BorderRadius.circular(50),
-                ),
-                child: Icon(
-                  Icons.favorite,
-                  size: 18,
-                  color:
-                      carsEntity.isLiked
-                          ? AppColors.primaryColor
-                          : AppColors.black.withValues(alpha: 0.6),
-                ),
+              child: GestureDetector(
+                onTap: () {
+                  favoriteCubit.toggleFavorite(carId: widget.carsEntity.id);
+                  setState(() {
+                    isFavorite = !isFavorite;
+                  });
+                },
+                child: FavoriteWidget(isFavorite: isFavorite),
               ),
             ),
           ],
         ),
         VerticalSpace(height: height(context) * 0.01),
-        Text(carsEntity.name, style: AppStyles.font15MediumBlack(context)),
         Text(
-          "Rs. ${carsEntity.price}",
+          widget.carsEntity.name,
+          style: AppStyles.font15MediumBlack(context),
+        ),
+        Text(
+          "Rs. ${widget.carsEntity.price}",
           style: AppStyles.font12MediumPrimaryBlackWithOpacity(context),
         ),
       ],
