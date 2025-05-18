@@ -76,7 +76,19 @@ class HomeRepoImpl extends HomeRepo {
   }
 
   @override
-  Future<Either<Failure, void>> toggelFavorite() async {
-    throw UnimplementedError();
+  Future<Either<Failure, void>> toggelFavorite({required String carId}) async {
+    try {
+      await api.post("${ApiKeys.toggleFavorite}/$carId");
+      return right(null);
+    } on Exception catch (e) {
+      if (e is DioException) {
+        log(
+          "Error in HomeRepoImpl in toggelFavorite method in dio exceptions : $e",
+        );
+        return left(ServerFailure.fromDioExeptions(e));
+      }
+      log("Error in HomeRepoImpl in toggelFavorite method : $e");
+      return left(ServerFailure(e.toString()));
+    }
   }
 }
