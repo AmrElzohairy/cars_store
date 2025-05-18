@@ -1,4 +1,5 @@
 import 'package:cars_store/core/utils/app_colors.dart';
+import 'package:cars_store/core/utils/media_query_size.dart';
 import 'package:cars_store/core/utils/spacing_widgets.dart';
 import 'package:cars_store/feature/main_views/presentation/views/widgets/home_multi_bloc_provider.dart';
 import 'package:flutter/material.dart';
@@ -38,10 +39,11 @@ class _MainViewsState extends State<MainViews> {
           Center(child: Text('Profile')),
         ],
       ),
-
+      extendBody: true,
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: Container(
+          height: height(context) * 0.08,
           decoration: BoxDecoration(
             color: AppColors.white,
             borderRadius: BorderRadius.circular(25),
