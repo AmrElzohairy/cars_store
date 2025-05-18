@@ -32,6 +32,9 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       drawer: const Drawer(),
       appBar: AppBar(
+        scrolledUnderElevation: 0,
+        elevation: 0,
+        backgroundColor: AppColors.white,
         title: const Row(
           children: [
             Spacer(),
