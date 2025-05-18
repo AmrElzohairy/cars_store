@@ -34,7 +34,14 @@ class HomeGridViewItem extends StatelessWidget {
                   color: AppColors.white,
                   borderRadius: BorderRadius.circular(50),
                 ),
-                child: const Icon(Icons.favorite, size: 18),
+                child: Icon(
+                  Icons.favorite,
+                  size: 18,
+                  color:
+                      carsEntity.isLiked
+                          ? AppColors.primaryColor
+                          : AppColors.black.withValues(alpha: 0.6),
+                ),
               ),
             ),
           ],
