@@ -1,4 +1,5 @@
 import 'package:cars_store/core/utils/app_colors.dart';
+import 'package:cars_store/core/utils/spacing_widgets.dart';
 import 'package:cars_store/feature/main_views/presentation/views/widgets/home_multi_bloc_provider.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +15,21 @@ class _MainViewsState extends State<MainViews> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const Drawer(),
+      appBar: AppBar(
+        scrolledUnderElevation: 0,
+        elevation: 0,
+        backgroundColor: AppColors.white,
+        title: const Row(
+          children: [
+            Spacer(),
+            HorizontalSpace(width: 10),
+            Text('CarsStore', style: TextStyle(color: AppColors.primaryColor)),
+            Spacer(flex: 2),
+            Icon(Icons.notifications_none),
+          ],
+        ),
+      ),
       body: IndexedStack(
         index: currentIndex,
         children: const [

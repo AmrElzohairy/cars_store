@@ -1,4 +1,3 @@
-import 'package:cars_store/core/utils/app_colors.dart';
 import 'package:cars_store/core/utils/spacing_widgets.dart';
 import 'package:cars_store/feature/home/presentation/cubits/featured_cars_cubit/featured_cars_cubit.dart';
 import 'package:cars_store/feature/home/presentation/cubits/recommended_cars_cubit/recommended_cars_cubit.dart';
@@ -29,37 +28,20 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: const Drawer(),
-      appBar: AppBar(
-        scrolledUnderElevation: 0,
-        elevation: 0,
-        backgroundColor: AppColors.white,
-        title: const Row(
-          children: [
-            Spacer(),
-            HorizontalSpace(width: 10),
-            Text('CarsStore', style: TextStyle(color: AppColors.primaryColor)),
-            Spacer(flex: 2),
-            Icon(Icons.notifications_none),
-          ],
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12),
-        child: CustomScrollView(
-          slivers: [
-            const SliverToBoxAdapter(child: VerticalSpace(height: 20)),
-            const SliverToBoxAdapter(child: HomeSearchFieldAndFilters()),
-            const SliverToBoxAdapter(child: VerticalSpace(height: 20)),
-            const SliverToBoxAdapter(child: FeaturedCarsBlocBuilder()),
-            const SliverToBoxAdapter(child: VerticalSpace(height: 20)),
-            SliverToBoxAdapter(child: HomeRecommendedWidget(onTap: () {})),
-            const SliverToBoxAdapter(child: VerticalSpace(height: 20)),
-            const HomeSliverGridBlocBuilder(),
-            const SliverToBoxAdapter(child: VerticalSpace(height: 20)),
-          ],
-        ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      child: CustomScrollView(
+        slivers: [
+          const SliverToBoxAdapter(child: VerticalSpace(height: 20)),
+          const SliverToBoxAdapter(child: HomeSearchFieldAndFilters()),
+          const SliverToBoxAdapter(child: VerticalSpace(height: 20)),
+          const SliverToBoxAdapter(child: FeaturedCarsBlocBuilder()),
+          const SliverToBoxAdapter(child: VerticalSpace(height: 20)),
+          SliverToBoxAdapter(child: HomeRecommendedWidget(onTap: () {})),
+          const SliverToBoxAdapter(child: VerticalSpace(height: 20)),
+          const HomeSliverGridBlocBuilder(),
+          const SliverToBoxAdapter(child: VerticalSpace(height: 20)),
+        ],
       ),
     );
   }
