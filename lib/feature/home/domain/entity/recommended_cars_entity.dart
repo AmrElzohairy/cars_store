@@ -7,6 +7,7 @@ class RecommendedCarsEntity extends Equatable {
   final List<dynamic> images;
   final String description;
   final num price;
+  final bool isLiked;
 
   const RecommendedCarsEntity({
     required this.id,
@@ -14,10 +15,11 @@ class RecommendedCarsEntity extends Equatable {
     required this.images,
     required this.description,
     required this.price,
+    this.isLiked = false,
   });
 
   @override
-  List<Object?> get props => [id, name, images];
+  List<Object?> get props => [id, name, images, description, price];
 
   factory RecommendedCarsEntity.fromRecommendedCarsModel(
     RecommendedCarsModel model,
@@ -28,6 +30,7 @@ class RecommendedCarsEntity extends Equatable {
       images: model.imagesUrls ?? [],
       description: model.description ?? '',
       price: model.price ?? 0,
+      isLiked: model.isLiked ?? false,
     );
   }
 }
