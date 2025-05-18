@@ -4,6 +4,7 @@ class RecommendedCarsModel extends Equatable {
   final String? carId;
   final String? carBrand;
   final List<dynamic>? imagesUrls;
+  final bool? isLiked;
   final String? modelName;
   final num? price;
   final String? description;
@@ -15,6 +16,7 @@ class RecommendedCarsModel extends Equatable {
     this.carId,
     this.carBrand,
     this.imagesUrls,
+    this.isLiked,
     this.modelName,
     this.price,
     this.description,
@@ -27,9 +29,8 @@ class RecommendedCarsModel extends Equatable {
     return RecommendedCarsModel(
       carId: json['carId'] as String?,
       carBrand: json['carBrand'] as String?,
-      imagesUrls:
-          json['imagesUrls']
-              as List<dynamic>?, // Changed from List<String>? to List<dynamic>?
+      imagesUrls: json['imagesUrls'] as List<dynamic>?,
+      isLiked: json['isLiked'] as bool?,
       modelName: json['modelName'] as String?,
       price:
           json['price']
@@ -45,6 +46,7 @@ class RecommendedCarsModel extends Equatable {
     'carId': carId,
     'carBrand': carBrand,
     'imagesUrls': imagesUrls,
+    'isLiked': isLiked,
     'modelName': modelName,
     'price': price,
     'description': description,
@@ -59,6 +61,7 @@ class RecommendedCarsModel extends Equatable {
       carId,
       carBrand,
       imagesUrls,
+      isLiked,
       modelName,
       price,
       description,
