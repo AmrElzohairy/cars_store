@@ -1,4 +1,7 @@
 import 'package:cars_store/core/cache/cache_helper.dart';
+import 'package:cars_store/core/utils/app_styles.dart';
+import 'package:cars_store/core/utils/assets.dart';
+import 'package:cars_store/core/utils/media_query_size.dart';
 import 'package:cars_store/core/utils/spacing_widgets.dart';
 import 'package:cars_store/core/widgets/custom_app_button.dart';
 import 'package:cars_store/feature/auth/presentation/views/login_view.dart';
@@ -14,7 +17,47 @@ class ProfileView extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            const VerticalSpace(height: 50),
+            Text("Profile", style: AppStyles.font20MediumBlack(context)),
+            const VerticalSpace(height: 30),
+            Image.asset(
+              Assets.imagesProfilrMockUp,
+              height: height(context) * 0.15,
+            ),
+            const VerticalSpace(height: 30),
+            Container(
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Colors.grey.shade200,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Column(
+                children: [
+                  Text(
+                    "Name: Admin",
+                    style: AppStyles.font16MediumBlack(context),
+                  ),
+                  const VerticalSpace(height: 10),
+                  Text(
+                    "Email: OuPbM@example.com",
+                    style: AppStyles.font16MediumBlack(context),
+                  ),
+                  const VerticalSpace(height: 10),
+                  Text(
+                    "Phone: +20 1234567890",
+                    style: AppStyles.font16MediumBlack(context),
+                  ),
+                  const VerticalSpace(height: 10),
+                  Text(
+                    "Address: 123 Main St, City, Country",
+                    style: AppStyles.font16MediumBlack(context),
+                  ),
+                  const VerticalSpace(height: 10),
+                ],
+              ),
+            ),
             const Spacer(),
             CustomAppButton(
               text: 'Logout',
@@ -25,7 +68,7 @@ class ProfileView extends StatelessWidget {
               },
               isLoading: false,
             ),
-            const VerticalSpace(height: 150),
+            const VerticalSpace(height: 210),
           ],
         ),
       ),
