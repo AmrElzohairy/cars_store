@@ -2,6 +2,7 @@ import 'package:cars_store/core/utils/app_colors.dart';
 import 'package:cars_store/core/utils/media_query_size.dart';
 import 'package:cars_store/core/utils/spacing_widgets.dart';
 import 'package:cars_store/feature/main_views/presentation/views/widgets/home_multi_bloc_provider.dart';
+import 'package:cars_store/feature/profile/presentation/views/profile_view.dart';
 import 'package:flutter/material.dart';
 
 class MainViews extends StatefulWidget {
@@ -36,7 +37,7 @@ class _MainViewsState extends State<MainViews> {
         children: const [
           HomeMultiBlocProvider(),
           Center(child: Text('Favorite')),
-          Center(child: Text('Profile')),
+          ProfileView(),
         ],
       ),
       extendBody: true,
