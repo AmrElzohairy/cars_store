@@ -5,7 +5,6 @@ import 'package:cars_store/core/cache/cache_helper.dart';
 import 'package:cars_store/core/errors/failure.dart';
 import 'package:cars_store/core/networking/api_keys.dart';
 import 'package:cars_store/core/networking/api_services.dart';
-import 'package:cars_store/feature/auth/data/models/refresh_token_response.dart';
 import 'package:cars_store/feature/auth/data/models/sign_in_body.dart';
 import 'package:cars_store/feature/auth/data/models/sign_in_response_model.dart';
 import 'package:cars_store/feature/auth/data/models/sign_up_body_model.dart';
@@ -63,14 +62,5 @@ class AuthRepoImpl extends AuthRepo {
       log("Error in AuthRepoImpl in signUp method : $e");
       return left(ServerFailure(e.toString()));
     }
-  }
-
-  @override
-  Future<RefreshTokenResponse> getNewToken({
-    required String refreshToken,
-  }) async {
-    var response = await api.post(ApiKeys.refreshToken, data: refreshToken);
-    var data = RefreshTokenResponse.fromJson(response);
-    return data;
   }
 }
