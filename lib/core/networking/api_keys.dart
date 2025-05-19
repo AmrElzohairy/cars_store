@@ -5,4 +5,5 @@ class ApiKeys {
   static const String featuredCars = "Car/Featured";
   static const String recommendedCars = "Car/Recommended"; 
   static const String toggleFavorite = "Favorite/ToggleFavorite";
+  static const String favoritesMe = "Favorite/Favorites/me";
 }
