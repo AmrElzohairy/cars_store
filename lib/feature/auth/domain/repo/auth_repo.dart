@@ -9,7 +9,7 @@ abstract class AuthRepo {
   Future<Either<Failure, UserEntity>> signIn(SignInBodyModel signInBody);
 
   Future<Either<Failure, void>> signUp(SignUpBodyModel signUpBody);
-  Future<Either<Failure, RefreshTokenResponse>> getNewToken({
+  Future< RefreshTokenResponse> getNewToken({
     required String refreshToken,
   });
 }

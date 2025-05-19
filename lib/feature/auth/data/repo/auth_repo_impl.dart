@@ -66,11 +66,11 @@ class AuthRepoImpl extends AuthRepo {
   }
 
   @override
-  Future<Either<Failure, RefreshTokenResponse>> getNewToken({
+  Future<RefreshTokenResponse> getNewToken({
     required String refreshToken,
   }) async {
     var response = await api.post(ApiKeys.refreshToken, data: refreshToken);
     var data = RefreshTokenResponse.fromJson(response);
-    return right(data);
+    return data;
   }
 }
