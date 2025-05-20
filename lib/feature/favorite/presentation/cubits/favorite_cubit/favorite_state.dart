@@ -8,7 +8,9 @@ sealed class FavoriteState extends Equatable {
 }
 
 final class FavoriteInitial extends FavoriteState {}
+
 final class FavoriteLoading extends FavoriteState {}
+
 final class FavoriteSuccess extends FavoriteState {
   final List<FavoriteCarsEntity> favoriteCars;
 
@@ -17,6 +19,7 @@ final class FavoriteSuccess extends FavoriteState {
   @override
   List<Object> get props => [favoriteCars];
 }
+
 final class FavoriteError extends FavoriteState {
   final String error;
 
