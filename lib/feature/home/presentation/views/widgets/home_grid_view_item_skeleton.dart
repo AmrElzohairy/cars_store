@@ -24,7 +24,7 @@ class HomeGridViewItemSkeleton extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(12),
                 child: Container(
-                  height: height(context) * 0.22,
+                  height: height(context) * 0.15,
                   width: width(context) * 0.83,
                   color: AppColors.white,
                 ),
