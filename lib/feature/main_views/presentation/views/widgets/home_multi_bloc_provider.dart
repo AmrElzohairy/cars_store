@@ -7,7 +7,6 @@ import 'package:cars_store/feature/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 class HomeMultiBlocProvider extends StatelessWidget {
   const HomeMultiBlocProvider({super.key});
 

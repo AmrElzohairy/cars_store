@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_colors.dart';
 
 class FavoriteWidget extends StatelessWidget {
-  const FavoriteWidget({
-    super.key,
-    required this.isFavorite,
-  });
+  const FavoriteWidget({super.key, required this.isFavorite});
 
   final bool isFavorite;
 

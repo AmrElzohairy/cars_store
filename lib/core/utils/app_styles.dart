@@ -77,7 +77,7 @@ class AppStyles {
         letterSpacing: -0.41,
       );
 
-      static TextStyle font16MediumBlack(BuildContext context) => TextStyle(
+  static TextStyle font16MediumBlack(BuildContext context) => TextStyle(
     color: AppColors.black,
     fontSize: getResponsiveFontSize(context, fontSize: 16),
     fontWeight: FontWeight.w500,
