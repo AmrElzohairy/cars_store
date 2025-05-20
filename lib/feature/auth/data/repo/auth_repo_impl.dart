@@ -37,7 +37,7 @@ class AuthRepoImpl extends AuthRepo {
   }
 
   void setUserData(SignInResponseModel data, UserEntity user) {
-    CacheHelper.set(key: CacheKeys.accssToken, value: data.token);
+    CacheHelper.set(key: CacheKeys.accessToken, value: data.token);
     debugPrint("Access Token: ${data.token}");
     CacheHelper.set(key: CacheKeys.refreshToken, value: data.refreshToken);
     debugPrint("Refresh Token: ${data.refreshToken}");

@@ -11,7 +11,7 @@ class AuthInterceptor extends Interceptor {
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) async {
-    final token = CacheHelper.getString(key: CacheKeys.accssToken);
+    final token = CacheHelper.getString(key: CacheKeys.accessToken);
 
     if (token != null) {
       options.headers['Authorization'] = 'Bearer $token';
