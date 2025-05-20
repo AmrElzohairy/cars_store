@@ -29,11 +29,11 @@ class FeaturedCarsModel extends Equatable {
       carBrand: json['carBrand'] as String?,
       imagesUrls:
           json['imagesUrls']
-              as List<dynamic>?, // Changed from List<String>? to List<dynamic>?
+              as List<dynamic>?, 
       modelName: json['modelName'] as String?,
       price:
           json['price']
-              as num?, // Changed from int? to num? to handle potential doubles
+              as num?, 
       description: json['description'] as String?,
       yearOfProduction: json['yearOfProduction'] as int?,
       isFeatured: json['isFeatured'] as bool?,
