@@ -1,7 +1,3 @@
-import 'dart:developer';
-
-import 'package:cars_store/core/cache/cache_constants.dart';
-import 'package:cars_store/core/cache/cache_helper.dart';
 import 'package:cars_store/core/utils/spacing_widgets.dart';
 import 'package:cars_store/feature/home/presentation/cubits/featured_cars_cubit/featured_cars_cubit.dart';
 import 'package:cars_store/feature/home/presentation/cubits/recommended_cars_cubit/recommended_cars_cubit.dart';
@@ -23,8 +19,6 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
-    log("token: ${CacheHelper.getString(key: CacheKeys.accessToken)}");
-    log("refresh token: ${CacheHelper.getString(key: CacheKeys.refreshToken)}");
     var featuredCarsCubit = context.read<FeaturedCarsCubit>();
     var recommendedCarsCubit = context.read<RecommendedCarsCubit>();
     featuredCarsCubit.getFeaturedCars();
