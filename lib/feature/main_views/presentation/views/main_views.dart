@@ -15,6 +15,11 @@ class MainViews extends StatefulWidget {
 
 class _MainViewsState extends State<MainViews> {
   int currentIndex = 0;
+  List<Widget> screens = [
+    const HomeMultiBlocProvider(),
+    const FavoriteViewBlocProvider(),
+    const ProfileView(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,14 +38,8 @@ class _MainViewsState extends State<MainViews> {
           ],
         ),
       ),
-      body: IndexedStack(
-        index: currentIndex,
-        children: const [
-          HomeMultiBlocProvider(),
-          FavoriteViewBlocProvider(),
-          ProfileView(),
-        ],
-      ),
+      body: screens[currentIndex],
+
       extendBody: true,
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
