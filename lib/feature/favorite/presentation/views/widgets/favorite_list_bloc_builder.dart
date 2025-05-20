@@ -1,5 +1,6 @@
 import 'package:cars_store/feature/favorite/presentation/cubits/favorite_cubit/favorite_cubit.dart';
 import 'package:cars_store/feature/favorite/presentation/views/widgets/favorite_item_list_view.dart';
+import 'package:cars_store/feature/favorite/presentation/views/widgets/favorite_item_skeleton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,7 +12,7 @@ class FavoriteListBlocBuilder extends StatelessWidget {
     return BlocBuilder<FavoriteCubit, FavoriteState>(
       builder: (context, state) {
         if (state is FavoriteLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return const FavoriteItemSkeleton();
         } else if (state is FavoriteError) {
           return Center(child: Text(state.error));
         } else if (state is FavoriteSuccess) {
