@@ -1,12 +1,13 @@
 import 'package:cars_store/core/utils/app_styles.dart';
-import 'package:cars_store/core/utils/assets.dart';
 import 'package:cars_store/core/utils/media_query_size.dart';
 import 'package:cars_store/core/utils/spacing_widgets.dart';
+import 'package:cars_store/core/widgets/custom_cached_network_image.dart';
+import 'package:cars_store/feature/favorite/domain/entity/favorite_cars_entity.dart';
 import 'package:flutter/material.dart';
 
 class FavoriteItem extends StatelessWidget {
-  const FavoriteItem({super.key});
-
+  const FavoriteItem({super.key, required this.carsEntity});
+  final FavoriteCarsEntity carsEntity;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -18,8 +19,8 @@ class FavoriteItem extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(20),
-              child: Image.asset(
-                Assets.imagesAudiCarTest,
+              child: CustomCachedNetworkImage(
+                imageUrl: carsEntity.imageUrl,
                 height: height(context) * 0.2,
                 width: width(context) * 0.4,
               ),
@@ -28,10 +29,16 @@ class FavoriteItem extends StatelessWidget {
             Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text("Audi A4", style: AppStyles.font16MediumBlack(context)),
-                Text("Brand", style: AppStyles.font16MediumBlack(context)),
                 Text(
-                  "Price: \$30,000",
+                  carsEntity.name,
+                  style: AppStyles.font16MediumBlack(context),
+                ),
+                Text(
+                  carsEntity.brand,
+                  style: AppStyles.font16MediumBlack(context),
+                ),
+                Text(
+                  "Price: \$${carsEntity.price}",
                   style: AppStyles.font16MediumBlack(context),
                 ),
               ],

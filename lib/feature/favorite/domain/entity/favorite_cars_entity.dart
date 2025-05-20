@@ -3,12 +3,14 @@ import 'package:cars_store/feature/favorite/data/models/favorite_cars_model/favo
 class FavoriteCarsEntity {
   final String id;
   final String name;
+  final String brand;
   final String imageUrl;
   final num price;
 
   FavoriteCarsEntity({
     required this.id,
     required this.name,
+    required this.brand,
     required this.imageUrl,
     required this.price,
   });
@@ -17,7 +19,8 @@ class FavoriteCarsEntity {
     return FavoriteCarsEntity(
       id: model.carId ?? '',
       name: model.modelName ?? '',
-      imageUrl: model.imageUrls?.first ?? '',
+      brand: model.carBrand ?? '',
+      imageUrl: model.imageUrls?[1] ?? '',
       price: model.price ?? 0,
     );
   }

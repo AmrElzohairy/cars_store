@@ -16,7 +16,7 @@ class FavoriteListBlocBuilder extends StatelessWidget {
         } else if (state is FavoriteError) {
           return Center(child: Text(state.error));
         } else if (state is FavoriteSuccess) {
-          return const FavoriteItemListView();
+          return FavoriteItemListView(carsEntity: state.favoriteCars);
         }
         return const Center(child: Text('No favorite cars found.'));
       },
