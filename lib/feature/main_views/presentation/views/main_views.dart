@@ -42,9 +42,7 @@ class _MainViewsState extends State<MainViews> {
         children: [
           const HomeMultiBlocProvider(),
           BlocProvider(
-            create:
-                (context) =>
-                    FavoriteCubit(getIt<FavoriteRepo>())..getFavoriteCars(),
+            create: (context) => FavoriteCubit(getIt<FavoriteRepo>()),
             child: const FavoriteView(),
           ),
           const ProfileView(),
