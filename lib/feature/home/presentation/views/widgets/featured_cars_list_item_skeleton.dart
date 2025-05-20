@@ -11,7 +11,10 @@ class FeaturedCarsListItemSkeleton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Skeletonizer(
-      enabled: true,
+      effect: ShimmerEffect(
+        baseColor: Colors.grey[300]!,
+        highlightColor: Colors.grey[100]!,
+      ),
       child: SizedBox(
         height: height(context) * 0.2,
         child: ListView.builder(

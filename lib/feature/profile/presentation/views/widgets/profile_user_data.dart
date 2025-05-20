@@ -1,10 +1,11 @@
 import 'package:cars_store/core/utils/app_styles.dart';
 import 'package:cars_store/core/utils/spacing_widgets.dart';
+import 'package:cars_store/feature/profile/domain/entity/profile_user_entity.dart';
 import 'package:flutter/material.dart';
 
 class ProfileUserData extends StatelessWidget {
-  const ProfileUserData({super.key});
-
+  const ProfileUserData({super.key, required this.userEntity});
+  final ProfileUserEntity userEntity;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,10 +16,18 @@ class ProfileUserData extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Text("Name: Admin", style: AppStyles.font16MediumBlack(context)),
+          Text(
+            "Name: ${userEntity.name}",
+            style: AppStyles.font16MediumBlack(context),
+          ),
           const VerticalSpace(height: 10),
           Text(
-            "Email: OuPbM@example.com",
+            "Id: ${userEntity.id}",
+            style: AppStyles.font14MediumBlack(context),
+          ),
+          const VerticalSpace(height: 10),
+          Text(
+            "Email: ${userEntity.email}",
             style: AppStyles.font16MediumBlack(context),
           ),
           const VerticalSpace(height: 10),

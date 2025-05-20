@@ -50,7 +50,7 @@ class ProfileViewSkeleton extends StatelessWidget {
                   const VerticalSpace(height: 10),
                   Text(
                     "Email: OuPbM@example.com",
-                    style: AppStyles.font16MediumBlack(context),
+                    style: AppStyles.font15MediumBlack(context),
                   ),
                   const VerticalSpace(height: 10),
                   Text(
