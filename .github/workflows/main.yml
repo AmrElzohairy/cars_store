@@ -38,7 +38,7 @@ jobs:
         run: flutter build apk --release
 
 
-      - name: Upload APK
+      - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         with:
           name: release-apk

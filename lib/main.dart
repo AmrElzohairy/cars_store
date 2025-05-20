@@ -23,7 +23,7 @@ class CarsStore extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: AppColors.scaffoldBgColor,
         primaryColor: AppColors.primaryColor,
-        fontFamily: "Poppins",
+        fontFamily: "Poppins"
       ),
     );
   }
