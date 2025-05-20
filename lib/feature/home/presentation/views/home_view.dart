@@ -40,7 +40,7 @@ class _HomeViewState extends State<HomeView> {
           SliverToBoxAdapter(child: HomeRecommendedWidget(onTap: () {})),
           const SliverToBoxAdapter(child: VerticalSpace(height: 20)),
           const HomeSliverGridBlocBuilder(),
-          const SliverToBoxAdapter(child: VerticalSpace(height: 20)),
+          const SliverToBoxAdapter(child: VerticalSpace(height: 100)),
         ],
       ),
     );

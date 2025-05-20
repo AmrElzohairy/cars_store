@@ -19,7 +19,7 @@ class FavoriteItemSkeleton extends StatelessWidget {
               highlightColor: Colors.grey[100]!,
             ),
             child: Card(
-              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
