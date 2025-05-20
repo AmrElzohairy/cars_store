@@ -3,7 +3,7 @@ import 'package:cars_store/core/utils/media_query_size.dart';
 import 'package:cars_store/core/utils/spacing_widgets.dart';
 import 'package:cars_store/feature/main_views/presentation/views/widgets/favorite_view_bloc_provider.dart';
 import 'package:cars_store/feature/main_views/presentation/views/widgets/home_multi_bloc_provider.dart';
-import 'package:cars_store/feature/profile/presentation/views/profile_view.dart';
+import 'package:cars_store/feature/main_views/presentation/views/widgets/profile_view_bloc_provider.dart';
 import 'package:flutter/material.dart';
 
 class MainViews extends StatefulWidget {
@@ -18,7 +18,7 @@ class _MainViewsState extends State<MainViews> {
   List<Widget> screens = [
     const HomeMultiBlocProvider(),
     const FavoriteViewBlocProvider(),
-    const ProfileView(),
+    const ProfileViewBlocProvider(),
   ];
   @override
   Widget build(BuildContext context) {
