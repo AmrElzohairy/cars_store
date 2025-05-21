@@ -1,16 +1,16 @@
+import 'package:cars_store/core/utils/app_colors.dart';
+import 'package:cars_store/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomErrorWidget extends StatelessWidget {
   final String message;
   final VoidCallback onRetry;
-  final String? title;
   final IconData icon;
 
   const CustomErrorWidget({
     super.key,
     this.message = 'An error occurred while fetching data',
     required this.onRetry,
-    this.title,
     this.icon = Icons.error_outline,
   });
 
@@ -20,34 +20,18 @@ class CustomErrorWidget extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         decoration: BoxDecoration(
-          color: Theme.of(
-            context,
-          ).colorScheme.errorContainer.withValues(alpha: 0.1),
+          color: Colors.grey.shade50,
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(
-            color: Theme.of(context).colorScheme.errorContainer,
-            width: 1,
-          ),
+          border: Border.all(color: Colors.red.shade100, width: 1),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(icon, size: 64, color: Theme.of(context).colorScheme.error),
+            Icon(icon, size: 54, color: Colors.red.shade300),
             const SizedBox(height: 12),
-            if (title != null) ...[
-              Text(
-                title!,
-                style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  color: Theme.of(context).colorScheme.error,
-                  fontWeight: FontWeight.bold,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 8),
-            ],
             Text(
               message,
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: AppStyles.font16MediumBlack(context),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 16),
@@ -56,8 +40,9 @@ class CustomErrorWidget extends StatelessWidget {
               icon: const Icon(Icons.refresh),
               label: const Text('Retry'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Theme.of(context).colorScheme.primary,
-                foregroundColor: Theme.of(context).colorScheme.onPrimary,
+                backgroundColor: AppColors.primaryColor,
+                foregroundColor: AppColors.white,
+                textStyle: AppStyles.buttonStyle(context),
                 padding: const EdgeInsets.symmetric(
                   horizontal: 24,
                   vertical: 12,

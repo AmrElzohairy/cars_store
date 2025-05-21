@@ -1,3 +1,4 @@
+import 'package:cars_store/core/widgets/custom_error_widget.dart';
 import 'package:cars_store/feature/home/presentation/cubits/featured_cars_cubit/featured_cars_cubit.dart';
 import 'package:cars_store/feature/home/presentation/views/widgets/featured_cars_list_item_skeleton.dart';
 import 'package:cars_store/feature/home/presentation/views/widgets/featured_cars_list_view.dart';
@@ -16,7 +17,12 @@ class FeaturedCarsBlocBuilder extends StatelessWidget {
         } else if (state is FeaturedCarsLoaded) {
           return FeaturedCarsListView(carEntity: state.cars);
         } else if (state is FeaturedCarsError) {
-          return Center(child: Text(state.errMessage));
+          return CustomErrorWidget(
+            message: state.errMessage,
+            onRetry: () {
+              context.read<FeaturedCarsCubit>().getFeaturedCars();
+            },
+          );
         }
         return const Center(child: Text("Something went wrong........"));
       },
