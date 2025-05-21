@@ -12,7 +12,7 @@ class FavoriteCubit extends Cubit<FavoriteState> {
     emit(FavoriteLoading());
     final result = await homeRepo.toggelFavorite(carId: carId);
     result.fold(
-      (failure) => emit(FavoriteError(errorMessage: failure.message)),
+      (failure) => emit(FavoriteError(errorMessage: failure.errMessage)),
       (success) => emit(FavoriteSuccess()),
     );
   }

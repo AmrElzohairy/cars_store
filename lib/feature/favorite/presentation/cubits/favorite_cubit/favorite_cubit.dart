@@ -13,7 +13,7 @@ class FavoriteCubit extends Cubit<FavoriteState> {
     emit(FavoriteLoading());
     final result = await favoriteRepo.getFavoriteCars();
     result.fold(
-      (failure) => emit(FavoriteError(failure.message)),
+      (failure) => emit(FavoriteError(failure.errMessage)),
       (favoriteCars) => emit(FavoriteSuccess(favoriteCars)),
     );
   }

@@ -14,7 +14,7 @@ class SignInCubit extends Cubit<SignInState> {
     emit(SignInLoading());
     var result = await authRepo.signIn(signInBody);
     result.fold(
-      (failure) => emit(SignInFailure(failure.message)),
+      (failure) => emit(SignInFailure(failure.errMessage)),
       (user) => emit(SignInSuccess(user)),
     );
   }

@@ -14,7 +14,7 @@ class RecommendedCarsCubit extends Cubit<RecommendedCarsState> {
     emit(RecommendedCarsLoading());
     final result = await homeRepo.getRecommendedCars();
     result.fold(
-      (failure) => emit(RecommendedCarsError(errMessage: failure.message)),
+      (failure) => emit(RecommendedCarsError(errMessage: failure.errMessage)),
       (cars) => emit(RecommendedCarsLoaded(cars: cars)),
     );
   }
