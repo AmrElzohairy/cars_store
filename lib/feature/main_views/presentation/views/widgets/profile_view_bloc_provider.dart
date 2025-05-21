@@ -12,7 +12,7 @@ class ProfileViewBlocProvider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ProfileCubit(getIt<ProfileRepo>())..getUserData(),
+      create: (context) => ProfileCubit(getIt<ProfileRepo>()),
       child: const ProfileView(),
     );
   }

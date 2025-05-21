@@ -1,3 +1,4 @@
+import 'package:cars_store/core/widgets/custom_refresh_indicator.dart';
 import 'package:cars_store/feature/favorite/presentation/cubits/favorite_cubit/favorite_cubit.dart';
 import 'package:cars_store/feature/favorite/presentation/views/widgets/favorite_list_bloc_builder.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,11 @@ class _FavoriteViewState extends State<FavoriteView> {
 
   @override
   Widget build(BuildContext context) {
-    return const FavoriteListBlocBuilder();
+    return CustomRefreshIndicator(
+      onRefresh: () async {
+        context.read<FavoriteCubit>().getFavoriteCars();
+      },
+      child: const FavoriteListBlocBuilder(),
+    );
   }
 }
