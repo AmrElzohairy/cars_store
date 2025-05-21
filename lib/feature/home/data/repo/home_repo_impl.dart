@@ -4,6 +4,7 @@ import 'package:cars_store/core/errors/failure.dart';
 import 'package:cars_store/core/networking/api_services.dart';
 import 'package:cars_store/feature/home/data/models/featured_cars_model/featured_cars_model.dart';
 import 'package:cars_store/feature/home/data/models/recommended_cars_model/recommended_cars_model.dart';
+import 'package:cars_store/feature/home/data/models/search_model/search_model.dart';
 import 'package:cars_store/feature/home/domain/entity/home_featured_list_entity.dart';
 import 'package:cars_store/feature/home/domain/entity/recommended_cars_entity.dart';
 import 'package:cars_store/feature/home/domain/repo/home_repo.dart';
@@ -88,6 +89,32 @@ class HomeRepoImpl extends HomeRepo {
         return left(ServerFailure.fromDioExeptions(e));
       }
       log("Error in HomeRepoImpl in toggelFavorite method : $e");
+      return left(ServerFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<SearchModel>>> searchCars({
+    required String query,
+  }) async {
+    try {
+      var response = await api.get(
+        ApiKeys.carSearch,
+        queryParameters: {"search": query},
+      );
+      if (response is! List) {
+        return left(ServerFailure('Response is not a list'));
+      }
+      var searchList = response.map((e) => SearchModel.fromJson(e)).toList();
+      return right(searchList);
+    } on Exception catch (e) {
+      if (e is DioException) {
+        log(
+          "Error in HomeRepoImpl in searchCars method in dio exceptions : $e",
+        );
+        return left(ServerFailure.fromDioExeptions(e));
+      }
+      log("Error in HomeRepoImpl in searchCars method : $e");
       return left(ServerFailure(e.toString()));
     }
   }
