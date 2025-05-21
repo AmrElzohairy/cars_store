@@ -22,9 +22,12 @@ class ProfileViewBlocBuilder extends StatelessWidget {
         if (state is ProfileLoading) {
           return const ProfileViewSkeleton();
         } else if (state is ProfileError) {
-          return CustomErrorWidget(onRetry: () {
-            context.read<ProfileCubit>().getUserData();
-          }, message: state.error);
+          return CustomErrorWidget(
+            onRetry: () {
+              context.read<ProfileCubit>().getUserData();
+            },
+            message: state.error,
+          );
         } else if (state is ProfileLoaded) {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
