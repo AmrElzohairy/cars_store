@@ -1,3 +1,4 @@
+import 'package:cars_store/core/widgets/custom_error_widget.dart';
 import 'package:cars_store/feature/favorite/presentation/cubits/favorite_cubit/favorite_cubit.dart';
 import 'package:cars_store/feature/favorite/presentation/views/widgets/favorite_item_list_view.dart';
 import 'package:cars_store/feature/favorite/presentation/views/widgets/favorite_item_skeleton.dart';
@@ -14,7 +15,12 @@ class FavoriteListBlocBuilder extends StatelessWidget {
         if (state is FavoriteLoading) {
           return const FavoriteItemSkeleton();
         } else if (state is FavoriteError) {
-          return Center(child: Text(state.error));
+          return CustomErrorWidget(
+            onRetry: () {
+              context.read<FavoriteCubit>().getFavoriteCars();
+            },
+            message: state.error,
+          );
         } else if (state is FavoriteSuccess) {
           return FavoriteItemListView(carsEntity: state.favoriteCars);
         }

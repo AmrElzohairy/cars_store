@@ -2,6 +2,7 @@ import 'package:cars_store/core/cache/cache_helper.dart';
 import 'package:cars_store/core/utils/app_styles.dart';
 import 'package:cars_store/core/utils/spacing_widgets.dart';
 import 'package:cars_store/core/widgets/custom_app_button.dart';
+import 'package:cars_store/core/widgets/custom_error_widget.dart';
 import 'package:cars_store/feature/auth/presentation/views/login_view.dart';
 import 'package:cars_store/feature/profile/presentation/cubits/profile_cubit/profile_cubit.dart';
 import 'package:cars_store/feature/profile/presentation/views/widgets/profile_image.dart';
@@ -21,7 +22,9 @@ class ProfileViewBlocBuilder extends StatelessWidget {
         if (state is ProfileLoading) {
           return const ProfileViewSkeleton();
         } else if (state is ProfileError) {
-          return Center(child: Text(state.error));
+          return CustomErrorWidget(onRetry: () {
+            context.read<ProfileCubit>().getUserData();
+          }, message: state.error);
         } else if (state is ProfileLoaded) {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),

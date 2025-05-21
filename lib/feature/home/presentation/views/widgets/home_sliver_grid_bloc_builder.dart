@@ -1,3 +1,4 @@
+import 'package:cars_store/core/widgets/custom_error_widget.dart';
 import 'package:cars_store/feature/home/presentation/cubits/recommended_cars_cubit/recommended_cars_cubit.dart';
 import 'package:cars_store/feature/home/presentation/views/widgets/home_grid_view_item_skeleton.dart';
 import 'package:cars_store/feature/home/presentation/views/widgets/home_sliver_grid_builder.dart';
@@ -17,7 +18,12 @@ class HomeSliverGridBlocBuilder extends StatelessWidget {
           return HomeSliverGridBuilder(carsEntity: state.cars);
         } else if (state is RecommendedCarsError) {
           return SliverToBoxAdapter(
-            child: Center(child: Text(state.errMessage)),
+            child: CustomErrorWidget(
+              message: state.errMessage,
+              onRetry: () {
+                context.read<RecommendedCarsCubit>().getRecommendedCars();
+              },
+            ),
           );
         }
         return const SliverToBoxAdapter(
