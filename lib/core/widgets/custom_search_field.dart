@@ -8,10 +8,12 @@ class CustomSearchField extends StatelessWidget {
     this.controller,
     this.onChanged,
     this.onSubmitted,
+    this.onTap,
   });
   final TextEditingController? controller;
   final Function(String)? onChanged;
   final Function(String)? onSubmitted;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +22,7 @@ class CustomSearchField extends StatelessWidget {
         controller: controller,
         onChanged: onChanged,
         onSubmitted: onSubmitted,
+        onTap:onTap ,
         decoration: InputDecoration(
           prefixIcon: SvgPicture.asset(
             Assets.imagesSearhIcon,
