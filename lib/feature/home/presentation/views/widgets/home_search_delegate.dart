@@ -25,13 +25,28 @@ class HomeSearchDelegate extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    // TODO: implement buildResults
-    throw UnimplementedError();
+    return Container(
+      padding: const EdgeInsets.all(16),
+      child: Center(child: Text('Search result for "$query"')),
+    );
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    // TODO: implement buildSuggestions
-    throw UnimplementedError();
+    return Container(
+      padding: const EdgeInsets.all(16),
+      child: ListView.builder(
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text('Suggestion $index'),
+            onTap: () {
+              query = 'Suggestion $index';
+              showResults(context);
+            },
+          );
+        },
+      ),
+    );
   }
 }
