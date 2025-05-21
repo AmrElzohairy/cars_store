@@ -33,29 +33,15 @@ class ServerFailure extends Failure {
     }
   }
 
-  factory ServerFailure.fromResponse(int statusCode, dynamic response) {
-    if (statusCode == 401 && response["errors"] != null) {
-      if (response["errors"] != 401) {
-        if (response["errors"]["email"] != null) {
-          return ServerFailure(response["errors"]["email"][0]);
-        } else if (response["errors"]["phone"] != null) {
-          return ServerFailure(response["errors"]["phone"][0]);
-        }
-      } else {
-        return ServerFailure(response);
-      }
-    }
-
-    if (statusCode == 404 ||
-        statusCode == 400 ||
-        statusCode == 401 ||
-        statusCode == 403 ||
-        statusCode == 422) {
-      return ServerFailure(response["message"]);
+  factory ServerFailure.fromResponse(int? statusCode, dynamic response) {
+    if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
+      return ServerFailure(response['message']);
+    } else if (statusCode == 404) {
+      return ServerFailure('Your request not found, Please try later!');
     } else if (statusCode == 500) {
-      return ServerFailure("هناك مشكلة في الخادم يرجى المحاولة لاحقا");
+      return ServerFailure('Internal Server error, Please try later');
     } else {
-      return ServerFailure("لقد حدث خطأ، يرجى المحاولة مرة أخرى");
+      return ServerFailure('Opps There was an Error, Please try again');
     }
   }
 }
