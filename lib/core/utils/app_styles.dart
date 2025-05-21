@@ -34,6 +34,13 @@ class AppStyles {
         fontWeight: FontWeight.w500,
       );
 
+  static TextStyle font18MediumPrimaryWithOpacity(BuildContext context) =>
+      TextStyle(
+        color: AppColors.textPrimary.withValues(alpha: 0.4),
+        fontSize: getResponsiveFontSize(context, fontSize: 18),
+        fontWeight: FontWeight.w500,
+      );
+
   static TextStyle font14MediumPrimaryPrimaryColor(BuildContext context) =>
       TextStyle(
         color: AppColors.primaryColor,

@@ -18,18 +18,10 @@ class HomeSearchFieldAndFilters extends StatelessWidget {
           onTap: () {
             // Get the SearchCubit from the nearest context
             final searchCubit = context.read<SearchCubit>();
-            
-            // Show search with our delegate
             showSearch(
-              context: context, 
+              context: context,
               delegate: HomeSearchDelegate(searchCubit: searchCubit),
-            ).then((carId) {
-              // Handle navigation to car details if a car was selected
-              if (carId != null) {
-                // Navigate to car details page using the carId
-                // Example: Navigator.pushNamed(context, '/car_details', arguments: carId);
-              }
-            });
+            );
           },
         ),
         const HorizontalSpace(width: 10),
