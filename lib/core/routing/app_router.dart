@@ -6,6 +6,7 @@ import 'package:cars_store/feature/auth/presentation/cubits/sign_in_cubit/sign_i
 import 'package:cars_store/feature/auth/presentation/cubits/sign_up_cubit/sign_up_cubit.dart';
 import 'package:cars_store/feature/auth/presentation/views/login_view.dart';
 import 'package:cars_store/feature/auth/presentation/views/sign_up_view.dart';
+import 'package:cars_store/feature/car_details/presentation/views/car_details_view.dart';
 import 'package:cars_store/feature/home/domain/repo/home_repo.dart';
 import 'package:cars_store/feature/home/presentation/cubits/favorite_cubit/favorite_cubit.dart';
 import 'package:cars_store/feature/home/presentation/cubits/featured_cars_cubit/featured_cars_cubit.dart';
@@ -65,6 +66,11 @@ abstract class AppRouter {
         path: MainViews.routeName,
         name: MainViews.routeName,
         builder: (context, state) => const MainViews(),
+      ),
+      GoRoute(
+        path: CarDetailsView.routeName,
+        name: CarDetailsView.routeName,
+        builder: (context, state) => const CarDetailsView(),
       ),
     ],
   );

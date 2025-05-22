@@ -1,9 +1,11 @@
 import 'package:cars_store/core/utils/spacing_widgets.dart';
+import 'package:cars_store/feature/car_details/presentation/views/car_details_view.dart';
 import 'package:cars_store/feature/home/domain/entity/recommended_cars_entity.dart';
 import 'package:cars_store/feature/home/presentation/cubits/favorite_cubit/favorite_cubit.dart';
 import 'package:cars_store/feature/home/presentation/views/widgets/favorite_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/utils/media_query_size.dart';
@@ -36,10 +38,15 @@ class _HomeGridViewItemState extends State<HomeGridViewItem> {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
-              child: CustomCachedNetworkImage(
-                imageUrl: widget.carsEntity.images.first,
-                height: height(context) * 0.22,
-                width: width(context) * 0.83,
+              child: GestureDetector(
+                onTap: () {
+                  context.pushNamed(CarDetailsView.routeName);
+                },
+                child: CustomCachedNetworkImage(
+                  imageUrl: widget.carsEntity.images.first,
+                  height: height(context) * 0.22,
+                  width: width(context) * 0.83,
+                ),
               ),
             ),
             Positioned(
