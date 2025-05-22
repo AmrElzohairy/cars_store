@@ -7,6 +7,7 @@ class CarDetailsEntity {
   final int year;
   final num price;
   final List<dynamic> images;
+  final String description;
 
   CarDetailsEntity({
     required this.id,
@@ -15,6 +16,7 @@ class CarDetailsEntity {
     required this.year,
     required this.price,
     required this.images,
+    this.description = "",
   });
 
   factory CarDetailsEntity.fromModel(CarDetailsModel carModel) {
@@ -25,6 +27,7 @@ class CarDetailsEntity {
       year: carModel.yearOfProduction ?? 0,
       price: carModel.price ?? 0,
       images: carModel.imagesUrls ?? [],
+      description: carModel.description ?? "",
     );
   }
 }
