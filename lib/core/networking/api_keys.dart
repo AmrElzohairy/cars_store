@@ -9,4 +9,5 @@ class ApiKeys {
   static const String favoritesMe = "Favorite/Favorites/me";
   static const String userData = "User/me";
   static const String carSearch = "Car/Search";
+  static const String carDetails = "Car";
 }
