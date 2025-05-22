@@ -1,6 +1,8 @@
 import 'package:cars_store/core/networking/api_services.dart';
 import 'package:cars_store/feature/auth/data/repo/auth_repo_impl.dart';
 import 'package:cars_store/feature/auth/domain/repo/auth_repo.dart';
+import 'package:cars_store/feature/car_details/data/repo/car_details_repo_impl.dart';
+import 'package:cars_store/feature/car_details/domain/repo/car_details_repo.dart';
 import 'package:cars_store/feature/favorite/data/repo/favorite_repo_impl.dart';
 import 'package:cars_store/feature/favorite/domain/repo/favorite_repo.dart';
 import 'package:cars_store/feature/home/data/repo/home_repo_impl.dart';
@@ -21,5 +23,8 @@ void setupDependencies() {
   );
   getIt.registerSingleton<ProfileRepo>(
     ProfileRepoImpl(api: getIt<ApiService>()),
+  );
+  getIt.registerSingleton<CarDetailsRepo>(
+    CarDetailsRepoImpl(api: getIt<ApiService>()),
   );
 }

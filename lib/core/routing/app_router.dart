@@ -6,6 +6,8 @@ import 'package:cars_store/feature/auth/presentation/cubits/sign_in_cubit/sign_i
 import 'package:cars_store/feature/auth/presentation/cubits/sign_up_cubit/sign_up_cubit.dart';
 import 'package:cars_store/feature/auth/presentation/views/login_view.dart';
 import 'package:cars_store/feature/auth/presentation/views/sign_up_view.dart';
+import 'package:cars_store/feature/car_details/domain/repo/car_details_repo.dart';
+import 'package:cars_store/feature/car_details/presentation/cubits/car_details_cubit/car_details_cubit.dart';
 import 'package:cars_store/feature/car_details/presentation/views/car_details_view.dart';
 import 'package:cars_store/feature/home/domain/repo/home_repo.dart';
 import 'package:cars_store/feature/home/presentation/cubits/favorite_cubit/favorite_cubit.dart';
@@ -70,7 +72,14 @@ abstract class AppRouter {
       GoRoute(
         path: CarDetailsView.routeName,
         name: CarDetailsView.routeName,
-        builder: (context, state) => const CarDetailsView(),
+        builder:
+            (context, state) => BlocProvider(
+              create:
+                  (context) =>
+                      CarDetailsCubit(getIt<CarDetailsRepo>())
+                        ..getCarDetails(state.extra.toString()),
+              child: const CarDetailsView(),
+            ),
       ),
     ],
   );
