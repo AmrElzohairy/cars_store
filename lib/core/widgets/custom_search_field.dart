@@ -22,7 +22,7 @@ class CustomSearchField extends StatelessWidget {
         controller: controller,
         onChanged: onChanged,
         onSubmitted: onSubmitted,
-        onTap:onTap ,
+        onTap: onTap,
         decoration: InputDecoration(
           prefixIcon: SvgPicture.asset(
             Assets.imagesSearhIcon,

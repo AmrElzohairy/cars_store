@@ -8,5 +8,7 @@ abstract class HomeRepo {
   Future<Either<Failure, List<FeaturedCarsEntity>>> getFeaturedCars();
   Future<Either<Failure, List<RecommendedCarsEntity>>> getRecommendedCars();
   Future<Either<Failure, void>> toggelFavorite({required String carId});
-  Future<Either<Failure,List<SearchModel>>> searchCars({required String query});
+  Future<Either<Failure, List<SearchModel>>> searchCars({
+    required String query,
+  });
 }
