@@ -15,6 +15,8 @@ class CarDetailsCard extends StatelessWidget {
         padding: EdgeInsets.all(8.0),
         child: Column(
           children: [
+            CarDetailsRow(category: "Brand", value: "Tesla"),
+            VerticalSpace(height: 5),
             CarDetailsRow(category: "Model", value: "Tesla Model S"),
             VerticalSpace(height: 5),
             CarDetailsRow(category: "Price", value: "\$60,000"),

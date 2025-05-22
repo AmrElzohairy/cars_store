@@ -6,7 +6,7 @@ class CarDetailsModel extends Equatable {
   final List<String>? imagesUrls;
   final bool? isLiked;
   final String? modelName;
-  final int? price;
+  final num? price;
   final String? description;
   final int? yearOfProduction;
   final bool? isFeatured;
@@ -32,7 +32,7 @@ class CarDetailsModel extends Equatable {
       imagesUrls: json['imagesUrls'] as List<String>?,
       isLiked: json['isLiked'] as bool?,
       modelName: json['modelName'] as String?,
-      price: json['price'] as int?,
+      price: json['price'] as num?,
       description: json['description'] as String?,
       yearOfProduction: json['yearOfProduction'] as int?,
       isFeatured: json['isFeatured'] as bool?,
