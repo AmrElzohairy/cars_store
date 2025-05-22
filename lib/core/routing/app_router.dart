@@ -74,11 +74,8 @@ abstract class AppRouter {
         name: CarDetailsView.routeName,
         builder:
             (context, state) => BlocProvider(
-              create:
-                  (context) =>
-                      CarDetailsCubit(getIt<CarDetailsRepo>())
-                        ..getCarDetails(state.extra.toString()),
-              child: const CarDetailsView(),
+              create: (context) => CarDetailsCubit(getIt<CarDetailsRepo>()),
+              child: CarDetailsView(carId: state.extra as String),
             ),
       ),
     ],

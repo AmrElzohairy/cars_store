@@ -22,7 +22,7 @@ class FeaturedCarsListItem extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              context.pushNamed(CarDetailsView.routeName);
+              context.pushNamed(CarDetailsView.routeName , extra: carEntity.id);
             },
             child: SizedBox(
               height: height(context) * 0.2,

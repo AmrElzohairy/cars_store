@@ -40,7 +40,7 @@ class _HomeGridViewItemState extends State<HomeGridViewItem> {
               borderRadius: BorderRadius.circular(12),
               child: GestureDetector(
                 onTap: () {
-                  context.pushNamed(CarDetailsView.routeName);
+                  context.pushNamed(CarDetailsView.routeName , extra: widget.carsEntity.id);
                 },
                 child: CustomCachedNetworkImage(
                   imageUrl: widget.carsEntity.images.first,

@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 class CarDetailsModel extends Equatable {
   final String? carId;
   final String? carBrand;
-  final List<String>? imagesUrls;
+  final List<dynamic>? imagesUrls;
   final bool? isLiked;
   final String? modelName;
   final num? price;
@@ -29,7 +29,7 @@ class CarDetailsModel extends Equatable {
     return CarDetailsModel(
       carId: json['carId'] as String?,
       carBrand: json['carBrand'] as String?,
-      imagesUrls: json['imagesUrls'] as List<String>?,
+      imagesUrls: json['imagesUrls'] as List<dynamic>?,
       isLiked: json['isLiked'] as bool?,
       modelName: json['modelName'] as String?,
       price: json['price'] as num?,
