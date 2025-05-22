@@ -2,6 +2,7 @@ import 'package:cars_store/core/utils/spacing_widgets.dart';
 import 'package:cars_store/core/widgets/custom_error_widget.dart';
 import 'package:cars_store/feature/car_details/presentation/views/car_details_view.dart';
 import 'package:cars_store/feature/car_details/presentation/views/widgets/car_details_carousel.dart';
+import 'package:cars_store/feature/car_details/presentation/views/widgets/car_details_skeleton.dart';
 import 'package:cars_store/feature/car_details/presentation/views/widgets/car_information.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,7 +19,7 @@ class CarDetailsBlocBuilder extends StatelessWidget {
     return BlocBuilder<CarDetailsCubit, CarDetailsState>(
       builder: (context, state) {
         if (state is CarDetailsLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return const CarDetailsSkeleton();
         } else if (state is CarDetailsError) {
           return CustomErrorWidget(
             onRetry: () {
