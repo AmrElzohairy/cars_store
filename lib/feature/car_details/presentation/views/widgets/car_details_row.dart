@@ -13,7 +13,7 @@ class CarDetailsRow extends StatelessWidget {
       children: [
         Text(
           "$category :",
-          style: AppStyles.font18MediumPrimaryWithOpacity(context),
+          style: AppStyles.font14MediumPrimaryPrimaryColor(context),
         ),
         const HorizontalSpace(width: 10),
         Text(value, style: AppStyles.font20BoldBlack(context)),
