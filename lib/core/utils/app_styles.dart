@@ -15,6 +15,13 @@ class AppStyles {
     fontWeight: FontWeight.w400,
   );
 
+  static TextStyle font16RegularBlackWithOpacity(BuildContext context) =>
+      TextStyle(
+        color: AppColors.black.withValues(alpha: 0.6),
+        fontSize: getResponsiveFontSize(context, fontSize: 14),
+        fontWeight: FontWeight.w400,
+      );
+
   static TextStyle textFieldStyle(BuildContext context) => TextStyle(
     color: AppColors.cadetGray,
     fontSize: getResponsiveFontSize(context, fontSize: 16),
@@ -57,6 +64,16 @@ class AppStyles {
   static TextStyle font16BoldWhite(BuildContext context) => TextStyle(
     color: AppColors.white,
     fontSize: getResponsiveFontSize(context, fontSize: 16),
+    fontWeight: FontWeight.w700,
+  );
+  static TextStyle font18BoldBlack(BuildContext context) => TextStyle(
+    color: AppColors.black,
+    fontSize: getResponsiveFontSize(context, fontSize: 18),
+    fontWeight: FontWeight.w700,
+  );
+  static TextStyle font20BoldBlack(BuildContext context) => TextStyle(
+    color: AppColors.black,
+    fontSize: getResponsiveFontSize(context, fontSize: 20),
     fontWeight: FontWeight.w700,
   );
 
